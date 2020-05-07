@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        background-image: url('https://source.unsplash.com/ymOqSmIizCY');
+        background-size: cover;
+      }
+
+      h1 {
+        color: #fff;
+        font-family: 'Source Sans Pro';
+      }
+    </style>
+    <script src="dist/quiq-contact-boxes.umd.js">
+      window.QuiqContactUs.configure({
+        sms: {
+          phoneNumber: "15558675309"
+        },
+        facebook: {
+          id: "your-facebook-id"
+        },
+        abc: {
+          appleBusinessId: "your-apple-business-id"
+        }
+      });
+
+      window.QuiqContactUs.render(["sms", "webchat", "facebook", "abc"]);
+    </script>
+    <h1>Test page</h1>
+  </body>
+</html>

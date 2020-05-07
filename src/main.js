@@ -254,20 +254,6 @@ const QuiqContactUs = {
 window['QuiqContactUs'] = QuiqContactUs
 export default QuiqContactUs
 
-// contactUsLauncher.configure({
-//   sms: {
-//     phoneNumber: "15558675309"
-//   },
-//   facebook: {
-//     id: "your-facebook-id"
-//   },
-//   abc: {
-//     appleBusinessId: "your-apple-business-id"
-//   }
-// });
-
-// contactUsLauncher.render(["sms", "webchat", "facebook", "abc"]);
-
 // contactUsLauncher.autoPop(
 //   "See Quiq in action.  Ask a question or start a conversation now.",
 //   10000

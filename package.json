@@ -1,0 +1,17 @@
+{
+  "name": "@quiq/contact-us-boxes",
+  "version": "1.0.0",
+  "description": "A way to easily add a way for your customers to contact you through Quiq using their preffered platform",
+  "main": "index.js",
+  "browser": "dist/quiq-contact-boxes.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "develop": "rollup -c -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "natenorberg@gmail.com",
+  "license": "MIT"
+}

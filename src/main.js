@@ -2,6 +2,7 @@ import isMobile from './isMobile'
 import renderContainer from './renderContainer'
 import renderMainButton from './renderMainButton'
 import renderFacebookMessengerIcon from './renderFacebookMessengerIcon'
+import importAppleScript from './importAppleScript'
 import './styles.css'
 
 var webchatLaunched = false
@@ -203,9 +204,10 @@ const QuiqContactUs = {
   configure: function (configuration) {
     config = configuration
   },
-  render: function (channels) {
+  render: async function (channels) {
     renderContainer()
     renderMainButton({toggle})
+    await importAppleScript()
     var container = document.querySelector('#contactChannelContainer .channelButtons')
     var totalChannels = (channels || []).length
 
@@ -237,6 +239,7 @@ const QuiqContactUs = {
       if (button) {
         container.appendChild(button)
       }
+      window.appleBusinessChat.refresh()
     })
   },
   toggle,

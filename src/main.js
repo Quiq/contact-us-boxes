@@ -1,4 +1,8 @@
 import isMobile from './isMobile'
+import renderContainer from './renderContainer'
+import renderMainButton from './renderMainButton'
+import renderFacebookMessengerIcon from './renderFacebookMessengerIcon'
+import './styles.css'
 
 var webchatLaunched = false
 
@@ -104,8 +108,7 @@ var _renderFacebook = function (i) {
   button.id = 'facebookButton'
   button.classList.add('channelButton')
 
-  var img = document.getElementById('Messenger_Mark')
-  img.style.display = 'block'
+  var img = renderFacebookMessengerIcon()
 
   var spacer = document.createElement('div')
   spacer.style.width = '50px'
@@ -167,11 +170,42 @@ var _renderAutoPopMessage = function (message) {
 
 var _timeout = undefined
 
+const toggle = function () {
+  var container = document.querySelector('#contactChannelContainer')
+  var chatButton = document.querySelector('#contactUsButton')
+  var open = container.style.display !== 'none'
+
+  if (_timeout) {
+    clearTimeout(_timeout)
+  }
+
+  document.querySelectorAll('#contactUsButton .autoPopBubble').forEach(function (bubble) {
+    bubble.classList.add('animateOut')
+
+    setTimeout(function () {
+      bubble.style.display = 'none'
+    }, 500)
+  })
+
+  if (open) {
+    container.classList.add('channelButtonsOut')
+
+    setTimeout(function () {
+      container.classList.remove('channelButtonsOut')
+      container.style.display = 'none'
+    }, 700)
+  } else {
+    container.style.display = 'block'
+  }
+}
+
 const QuiqContactUs = {
   configure: function (configuration) {
     config = configuration
   },
   render: function (channels) {
+    renderContainer()
+    renderMainButton({toggle})
     var container = document.querySelector('#contactChannelContainer .channelButtons')
     var totalChannels = (channels || []).length
 
@@ -205,34 +239,7 @@ const QuiqContactUs = {
       }
     })
   },
-  toggle: function () {
-    var container = document.querySelector('#contactChannelContainer')
-    var chatButton = document.querySelector('#contactUsButton')
-    var open = container.style.display !== 'none'
-
-    if (_timeout) {
-      clearTimeout(_timeout)
-    }
-
-    document.querySelectorAll('#contactUsButton .autoPopBubble').forEach(function (bubble) {
-      bubble.classList.add('animateOut')
-
-      setTimeout(function () {
-        bubble.style.display = 'none'
-      }, 500)
-    })
-
-    if (open) {
-      container.classList.add('channelButtonsOut')
-
-      setTimeout(function () {
-        container.classList.remove('channelButtonsOut')
-        container.style.display = 'none'
-      }, 700)
-    } else {
-      container.style.display = 'block'
-    }
-  },
+  toggle,
   close: function () {
     var container = document.querySelector('#contactChannelContainer')
     container.style.display = 'none'
@@ -253,8 +260,3 @@ const QuiqContactUs = {
 
 window['QuiqContactUs'] = QuiqContactUs
 export default QuiqContactUs
-
-// contactUsLauncher.autoPop(
-//   "See Quiq in action.  Ask a question or start a conversation now.",
-//   10000
-// );

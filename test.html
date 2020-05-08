@@ -17,20 +17,32 @@
         font-family: 'Source Sans Pro';
       }
     </style>
-    <script src="dist/quiq-contact-boxes.umd.js">
+
+    <!-- This section needs to be removed before we can consider this to be done -->
+    <script src="https://static.cdn-apple.com/businesschat/start-chat-button/2/index.js"></script>
+
+    <!-- End section to remove -->
+
+    <script src="dist/quiq-contact-boxes.umd.js"></script>
+    <script defer>
       window.QuiqContactUs.configure({
         sms: {
-          phoneNumber: "15558675309"
+          phoneNumber: '15558675309',
         },
         facebook: {
-          id: "your-facebook-id"
+          id: 'your-facebook-id',
         },
         abc: {
-          appleBusinessId: "your-apple-business-id"
-        }
-      });
+          appleBusinessId: 'your-apple-business-id',
+        },
+      })
 
-      window.QuiqContactUs.render(["sms", "webchat", "facebook", "abc"]);
+      window.QuiqContactUs.render(['sms', 'webchat', 'facebook', 'abc'])
+
+      QuiqContactUs.autoPop(
+        'See Quiq in action.  Ask a question or start a conversation now.',
+        10000,
+      )
     </script>
     <h1>Test page</h1>
   </body>

@@ -7,6 +7,7 @@ import './styles.css'
 import renderSmsModal, {showSmsModal} from './renderSmsModal'
 import 'regenerator-runtime/runtime'
 import importWebchat from './importWebchat'
+import validateConfiguration from './validateConfiguration'
 
 var webchatLaunched = false
 
@@ -227,6 +228,7 @@ const autoPop = function () {
 
 const QuiqContactUs = {
   configure: function (configuration) {
+    validateConfiguration(configuration)
     config = configuration
   },
   render: async function () {

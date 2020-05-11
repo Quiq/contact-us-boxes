@@ -157,10 +157,10 @@
 #webchatButton {
   background: #2bb780;
 }
-&:hover {
+#webchatButton:hover {
   background: #27966d;
 }
-&:active {
+#webchatButton:active {
   background: #1c6e50;
 }
 

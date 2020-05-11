@@ -6,15 +6,18 @@ import importAppleScript from './importAppleScript'
 import './styles.css'
 import renderSmsModal, {showSmsModal} from './renderSmsModal'
 import 'regenerator-runtime/runtime'
+import importWebchat from './importWebchat'
 
 var webchatLaunched = false
 
 var config = {}
+var chat
 
 var launchWebchat = function () {
   webchatLaunched = true
   document.querySelector('#contactUsButton').style.display = 'none'
   document.querySelector('#contactChannelContainer').style.display = 'none'
+  chat.toggle()
 }
 
 var _wrapInLinkTag = function (element, href) {
@@ -202,7 +205,10 @@ const QuiqContactUs = {
   render: async function (channels) {
     renderContainer()
     renderMainButton({toggle})
-    await importAppleScript()
+    // Load external scripts if we need them
+    await (channels.includes('abc') ? importAppleScript() : Promise.resolve())
+    chat = await (channels.includes('webchat') ? importWebchat(config.webchat) : Promise.resolve())
+
     var container = document.querySelector('#contactChannelContainer .channelButtons')
     var totalChannels = (channels || []).length
 
@@ -234,8 +240,11 @@ const QuiqContactUs = {
       if (button) {
         container.appendChild(button)
       }
-      window.appleBusinessChat.refresh()
     })
+
+    if (channels.includes('abc')) {
+      window.appleBusinessChat.refresh()
+    }
   },
   toggle,
   close: function () {

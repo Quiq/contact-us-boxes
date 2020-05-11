@@ -24,15 +24,19 @@
         sms: {
           phoneNumber: '15558675309',
         },
+        webchat: {
+          tenant: 'nate',
+          options: {contactPoint: 'default'},
+        },
         facebook: {
-          id: 'your-facebook-id',
+          id: '779195188888969',
         },
         abc: {
           appleBusinessId: 'your-apple-business-id',
         },
       })
 
-      window.QuiqContactUs.render(['sms', 'webchat', 'facebook', 'abc'])
+      window.QuiqContactUs.render(['sms', 'facebook', 'abc', 'webchat'])
 
       QuiqContactUs.autoPop(
         'See Quiq in action.  Ask a question or start a conversation now.',

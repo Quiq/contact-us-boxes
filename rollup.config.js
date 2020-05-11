@@ -16,7 +16,7 @@ export default [
       resolve(),
       postcss({extensions: ['.css']}),
       babel({exclude: 'node_modules/**'}),
-      uglify(),
+      // uglify(),
     ],
   },
 ]

@@ -282,3 +282,64 @@
   animation: autoPopOut 0.25s linear 1;
   animation-fill-mode: both;
 }
+
+.QuiqContactUs-modalContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.QuiqContactUs-modal {
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 5px;
+  width: 300px;
+  margin: calc(50vh - 5rem) auto;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.QuiqContactUs-modalTitle {
+  color: hsl(0, 0%, 13%);
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.QuiqContactUs-modalClose {
+  float: right;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  margin: -0.5rem -0.5rem 0 0;
+  padding: 0 0.5rem 0.25rem;
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  transition: ease-in-out 0.15s background-color;
+  cursor: pointer;
+}
+
+.QuiqContactUs-modalClose:hover,
+.QuiqContactUs-modalClose:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.QuiqContactUs-modalClose:active {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.QuiqContactUs-modalPrompt,
+.QuiqContactUs-modalNumber {
+  font-size: 1.25rem;
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+.QuiqContactUs-modalNumber {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}

@@ -4,6 +4,8 @@ import renderMainButton from './renderMainButton'
 import renderFacebookMessengerIcon from './renderFacebookMessengerIcon'
 import importAppleScript from './importAppleScript'
 import './styles.css'
+import renderSmsModal from './renderSmsModal'
+import 'regenerator-runtime/runtime'
 
 var webchatLaunched = false
 
@@ -79,17 +81,16 @@ var _renderSms = function (i) {
     'SMS/Text',
   )
 
-  // Always using sms link until we can make our own modal stuff
-  return _wrapInLinkTag(button, 'sms:+' + config.sms.phoneNumber)
-
-  // if (isMobile()) {
-  //   // If we're on a phone, this should just be an sms link
-  //   return _wrapInLinkTag(button, "sms:+" + config.sms.phoneNumber);
-  // } else {
-  //   // Not in a phone, append WP stuff to show the modal for the phone number
-  //   _appendModalStuff(button, "smsmodal");
-  //   return button;
-  // }
+  if (isMobile()) {
+    // If we're on a phone, this should just be an sms link
+    return _wrapInLinkTag(button, 'sms:+' + config.sms.phoneNumber)
+  } else {
+    // Not in a phone, append WP stuff to show the modal for the phone number
+    _appendModalStuff(button, 'smsmodal')
+    const modalContainer = renderSmsModal({smsNumber: config.sms.phoneNumber})
+    document.body.appendChild(modalContainer)
+    return button
+  }
 }
 
 var _renderWebchat = function (i) {

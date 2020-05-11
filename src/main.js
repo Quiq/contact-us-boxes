@@ -81,10 +81,10 @@ var _renderSms = function (i) {
 
   if (isMobile()) {
     // If we're on a phone, this should just be an sms link
-    return _wrapInLinkTag(button, 'sms:+' + config.sms.phoneNumber)
+    return _wrapInLinkTag(button, 'sms:+' + config.channels.sms.phoneNumber)
   } else {
     button.onclick = showSmsModal
-    const modalContainer = renderSmsModal({smsNumber: config.sms.phoneNumber})
+    const modalContainer = renderSmsModal({smsNumber: config.channels.sms.phoneNumber})
     document.body.appendChild(modalContainer)
     return button
   }
@@ -119,7 +119,10 @@ var _renderFacebook = function (i) {
   button.appendChild(icon)
   button.appendChild(text)
 
-  var buttonLink = _wrapInLinkTag(button, 'https://www.messenger.com/t/' + config.facebook.id)
+  var buttonLink = _wrapInLinkTag(
+    button,
+    'https://www.messenger.com/t/' + config.channels.facebook.id,
+  )
 
   var parent = _renderAnimationContainer(i)
   parent.appendChild(buttonLink)
@@ -136,7 +139,7 @@ var _renderAbc = function (i) {
   icon.classList.add('apple-business-chat-message-container')
   icon.dataset.appleIconBackgroundColor = '#ffffff'
   icon.dataset.appleIconColor = '#6e7883'
-  icon.dataset.appleBusinessId = config.abc.appleBusinessId
+  icon.dataset.appleBusinessId = config.channels.abc.appleBusinessId
 
   var spacer = document.createElement('div')
   spacer.style.width = '50px'
@@ -150,7 +153,7 @@ var _renderAbc = function (i) {
 
   var buttonLink = _wrapInLinkTag(
     button,
-    'https://bcrw.apple.com/urn:biz:' + config.abc.appleBusinessId,
+    'https://bcrw.apple.com/urn:biz:' + config.channels.abc.appleBusinessId,
   )
 
   var parent = _renderAnimationContainer(i)
@@ -198,25 +201,39 @@ const toggle = function () {
   }
 }
 
+const autoPop = function () {
+  if (_timeout) {
+    clearTimeout(_timeout)
+  }
+
+  _timeout = setTimeout(function () {
+    var container = document.getElementById('contactUsButton')
+
+    container.appendChild(_renderAutoPopMessage(config.autoPop.message))
+  }, config.autoPop.wait)
+}
+
 const QuiqContactUs = {
   configure: function (configuration) {
     config = configuration
   },
-  render: async function (channels) {
+  render: async function () {
     renderContainer()
     renderMainButton({toggle})
     // Load external scripts if we need them
-    await (channels.includes('abc') ? importAppleScript() : Promise.resolve())
-    chat = await (channels.includes('webchat') ? importWebchat(config.webchat) : Promise.resolve())
+    await (config.order.includes('abc') ? importAppleScript() : Promise.resolve())
+    chat = await (config.order.includes('webchat')
+      ? importWebchat(config.channels.webchat)
+      : Promise.resolve())
 
     var container = document.querySelector('#contactChannelContainer .channelButtons')
-    var totalChannels = (channels || []).length
+    var totalChannels = (config.order || []).length
 
-    ;(channels || []).forEach(function (channel, i) {
+    ;(config.order || []).forEach(function (channel, i) {
       var button
       switch (channel) {
         case 'sms':
-          if (config.sms && config.sms.phoneNumber) {
+          if (config.channels.sms && config.channels.sms.phoneNumber) {
             button = _renderSms(totalChannels - i - 1)
           }
           break
@@ -226,12 +243,16 @@ const QuiqContactUs = {
           }
           break
         case 'facebook':
-          if (config.facebook && config.facebook.id) {
+          if (config.channels.facebook && config.channels.facebook.id) {
             button = _renderFacebook(totalChannels - i - 1)
           }
           break
         case 'abc':
-          if (config.abc && config.abc.appleBusinessId && window.appleBusinessChat.isSupported()) {
+          if (
+            config.channels.abc &&
+            config.channels.abc.appleBusinessId &&
+            window.appleBusinessChat.isSupported()
+          ) {
             button = _renderAbc(totalChannels - i - 1)
           }
           break
@@ -242,8 +263,14 @@ const QuiqContactUs = {
       }
     })
 
-    if (channels.includes('abc')) {
+    if (config.order.includes('abc')) {
       window.appleBusinessChat.refresh()
+    }
+
+    if (config.autoPop) {
+      console.log('auto poppin')
+
+      autoPop()
     }
   },
   toggle,
@@ -252,17 +279,6 @@ const QuiqContactUs = {
     container.style.display = 'none'
   },
   launchWebchat: launchWebchat,
-  autoPop: function (message, timeout) {
-    if (_timeout) {
-      clearTimeout(_timeout)
-    }
-
-    _timeout = setTimeout(function () {
-      var container = document.getElementById('contactUsButton')
-
-      container.appendChild(_renderAutoPopMessage(message))
-    }, timeout)
-  },
 }
 
 window['QuiqContactUs'] = QuiqContactUs

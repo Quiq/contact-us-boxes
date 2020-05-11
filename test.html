@@ -21,27 +21,29 @@
     <script src="dist/quiq-contact-boxes.umd.js"></script>
     <script defer>
       window.QuiqContactUs.configure({
-        sms: {
-          phoneNumber: '15558675309',
+        channels: {
+          sms: {
+            phoneNumber: '15558675309',
+          },
+          webchat: {
+            tenant: 'nate',
+            options: {contactPoint: 'default'},
+          },
+          facebook: {
+            id: '779195188888969',
+          },
+          abc: {
+            appleBusinessId: 'your-apple-business-id',
+          },
         },
-        webchat: {
-          tenant: 'nate',
-          options: {contactPoint: 'default'},
-        },
-        facebook: {
-          id: '779195188888969',
-        },
-        abc: {
-          appleBusinessId: 'your-apple-business-id',
+        order: ['sms', 'facebook', 'abc', 'webchat'],
+        autoPop: {
+          message: 'See Quiq in action.  Ask a question or start a conversation now.',
+          wait: 1000,
         },
       })
 
-      window.QuiqContactUs.render(['sms', 'facebook', 'abc', 'webchat'])
-
-      QuiqContactUs.autoPop(
-        'See Quiq in action.  Ask a question or start a conversation now.',
-        10000,
-      )
+      window.QuiqContactUs.render()
     </script>
     <h1>Test page</h1>
   </body>

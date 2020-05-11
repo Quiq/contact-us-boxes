@@ -18,7 +18,7 @@ export function hideSmsModal() {
   container.dataset.visible = false
 }
 
-export default function renderSmsModal({smsNumber}) {
+export default function renderSmsModal({smsNumber, fontFamily}) {
   var container = document.createElement('div')
   container.id = 'QuiqContactUsSmsModal'
   container.classList.add('QuiqContactUs-modalContainer')
@@ -35,12 +35,12 @@ export default function renderSmsModal({smsNumber}) {
 
   var title = document.createElement('h1')
   title.classList.add('QuiqContactUs-modalTitle')
-  title.style.fontFamily = 'Raleway'
+  title.style.fontFamily = fontFamily || 'Raleway'
   title.innerText = 'Text Us'
   modal.appendChild(title)
 
   var body = document.createElement('div')
-  body.style.fontFamily = 'Raleway'
+  body.style.fontFamily = fontFamily || 'Raleway'
   body.classList.add('QuiqContactUs-modalBody')
 
   var prompt = document.createElement('p')

@@ -55,6 +55,9 @@ var _renderBasicButton = function (i, id, imgUrl, text) {
   var button = document.createElement('div')
   button.id = id
   button.classList.add('channelButton')
+  if (config.styles?.fontFamily) {
+    button.style.fontFamily = config.styles.fontFamily
+  }
 
   var img = document.createElement('img')
   img.src = imgUrl
@@ -84,7 +87,10 @@ var _renderSms = function (i) {
     return _wrapInLinkTag(button, 'sms:+' + config.channels.sms.phoneNumber)
   } else {
     button.onclick = showSmsModal
-    const modalContainer = renderSmsModal({smsNumber: config.channels.sms.phoneNumber})
+    const modalContainer = renderSmsModal({
+      smsNumber: config.channels.sms.phoneNumber,
+      fontFamily: config.styles?.fontFamily,
+    })
     document.body.appendChild(modalContainer)
     return button
   }
@@ -106,6 +112,9 @@ var _renderFacebook = function (i) {
   var button = document.createElement('div')
   button.id = 'facebookButton'
   button.classList.add('channelButton')
+  if (config.styles?.fontFamily) {
+    button.style.fontFamily = config.styles.fontFamily
+  }
 
   var img = renderFacebookMessengerIcon()
 
@@ -134,6 +143,9 @@ var _renderAbc = function (i) {
   var button = document.createElement('div')
   button.id = 'abcButton'
   button.classList.add('channelButton')
+  if (config.styles?.fontFamily) {
+    button.style.fontFamily = config.styles.fontFamily
+  }
 
   var icon = document.createElement('div')
   icon.classList.add('apple-business-chat-message-container')
@@ -219,7 +231,7 @@ const QuiqContactUs = {
   },
   render: async function () {
     renderContainer()
-    renderMainButton({toggle, color: config.styles.buttonColor})
+    renderMainButton({toggle, color: config.styles?.buttonColor})
     // Load external scripts if we need them
     await (config.order.includes('abc') ? importAppleScript() : Promise.resolve())
     chat = await (config.order.includes('webchat')

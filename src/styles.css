@@ -22,7 +22,6 @@
 }
 
 #contactUsButton {
-  background: #31bf8b;
   border: none;
   border-radius: 100%;
   z-index: 99999;
@@ -39,7 +38,7 @@
   fill: #fff;
   cursor: pointer;
   transition: all 0.15s ease-in-out;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.117647), 0 1px 4px rgba(0, 0, 0, 0.117647);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   animation: chatButtonIn 0.3s ease-in-out 1;
 }
 
@@ -48,13 +47,14 @@
   animation-fill-mode: forwards;
 }
 
-#contactUsButton:hover {
-  background: #27966d;
-}
-#contactUsButton:active,
+#contactUsButton:hover,
 #contactUsButton:focus {
-  background: #1c6e50;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
   outline: none;
+}
+
+#contactUsButton:active {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 @keyframes fadeIn {

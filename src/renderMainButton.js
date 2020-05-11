@@ -1,7 +1,8 @@
-export default function renderMainButton({toggle}) {
+export default function renderMainButton({toggle, color}) {
   const button = document.createElement('button')
   button.id = 'contactUsButton'
   button.onclick = () => toggle()
+  button.style.backgroundColor = color || '#3f4654'
 
   const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   icon.setAttribute('width', '30')

@@ -219,7 +219,7 @@ const QuiqContactUs = {
   },
   render: async function () {
     renderContainer()
-    renderMainButton({toggle})
+    renderMainButton({toggle, color: config.styles.buttonColor})
     // Load external scripts if we need them
     await (config.order.includes('abc') ? importAppleScript() : Promise.resolve())
     chat = await (config.order.includes('webchat')
@@ -268,8 +268,6 @@ const QuiqContactUs = {
     }
 
     if (config.autoPop) {
-      console.log('auto poppin')
-
       autoPop()
     }
   },

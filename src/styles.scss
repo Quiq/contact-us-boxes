@@ -21,7 +21,33 @@
   }
 }
 
-#contactUsButton {
+@keyframes autoPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateX(30%);
+  }
+  65% {
+    opacity: 50%;
+    transform: scale(1.05) translateX(-1%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes autoPopOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translateX(30%);
+  }
+}
+
+#QuiqContactUsButton {
   border: none;
   border-radius: 100%;
   z-index: 99999;
@@ -55,6 +81,27 @@
   &:active {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
   }
+
+  .autoPopBubble {
+    animation: autoPopIn 0.5s linear 1;
+    animation-fill-mode: both;
+    position: fixed;
+    bottom: 24px;
+    right: 100px;
+    background: #fff;
+    color: #333;
+    padding: 12px;
+    font-size: 14px;
+    max-width: 300px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.3);
+    text-align: left;
+  }
+
+  .autoPopBubble.animateOut {
+    animation: autoPopOut 0.25s linear 1;
+    animation-fill-mode: both;
+  }
 }
 
 @keyframes fadeIn {
@@ -76,112 +123,6 @@
   to {
     opacity: 0;
     box-shadow: 0px 50px 50px 0px rgba(0, 0, 0, 0.25);
-  }
-}
-
-.channelOptionShadow {
-  position: fixed;
-  bottom: 0;
-  right: -310px;
-  width: 310px;
-  height: 310px;
-  border-top-left-radius: 100%;
-  background: rgba(0, 0, 0, 0);
-  animation: 0.5s fadeIn 1;
-  animation-fill-mode: both;
-  z-index: 100;
-}
-
-.channelButtons {
-  position: fixed;
-  bottom: 100px;
-  right: 24px;
-  z-index: 101;
-}
-
-.channelButton {
-  width: 255px;
-  height: 64px;
-  color: #fff;
-  font-family: Raleway, sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 7px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  transition: 0.15s ease-in-out all;
-  cursor: pointer;
-
-  &:hover {
-    border-color: rgba(0, 0, 0, 0.05);
-  }
-  &:active {
-    border-color: rgba(0, 0, 0, 0.15);
-  }
-}
-
-.channelLabel {
-  flex: 1 1 auto;
-  text-align: center;
-}
-
-.channelButtons a {
-  text-decoration: none;
-}
-
-.channelButton .channelIcon {
-  width: 45px;
-  margin-left: 12px;
-  text-align: center;
-}
-
-.channelButton .channelIcon img {
-  width: 45px;
-}
-
-.channelButton .channelIcon svg {
-  margin: 0 auto;
-}
-
-#smsButton {
-  background: #404552;
-  &:hover {
-    background: #313744;
-  }
-  &:active {
-    background: #272d3a;
-  }
-}
-
-#webchatButton {
-  background: #2bb780;
-  &:hover {
-    background: #27966d;
-  }
-  &:active {
-    background: #1c6e50;
-  }
-}
-
-#facebookButton {
-  background: #3a5ca9;
-  letter-spacing: 0.5px;
-  &:hover {
-    background: #33539e;
-  }
-  &:active {
-    background: #2e4c94;
-  }
-}
-
-#abcButton {
-  background: #6e7883;
-  &:hover {
-    background: #626d7a;
-  }
-  &:active {
-    background: #54606d;
   }
 }
 
@@ -209,78 +150,138 @@
   }
 }
 
-.channelButtonIn {
-  animation: channelButtonIn 0.3s ease-in-out 1;
-  animation-fill-mode: both;
-}
-
-#contactChannelContainer.channelButtonsOut .channelButtonIn {
-  animation-name: channelButtonOut;
-}
-
-#contactChannelContainer.channelButtonsOut .channelOptionShadow {
-  animation-name: fadeOut;
-}
-
-.channelButtonIn-0 {
-  animation-delay: 0;
-}
-
-.channelButtonIn-1 {
-  animation-delay: calc(0.1s * 1);
-}
-.channelButtonIn-2 {
-  animation-delay: calc(0.1s * 2);
-}
-.channelButtonIn-3 {
-  animation-delay: calc(0.1s * 3);
-}
-
-@keyframes autoPopIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.5) translateX(30%);
+#QuiqContactUsButtons {
+  .channelOptionShadow {
+    position: fixed;
+    bottom: 0;
+    right: -310px;
+    width: 310px;
+    height: 310px;
+    border-top-left-radius: 100%;
+    background: rgba(0, 0, 0, 0);
+    animation: 0.5s fadeIn 1;
+    animation-fill-mode: both;
+    z-index: 100;
   }
-  65% {
-    opacity: 50%;
-    transform: scale(1.05) translateX(-1%);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateX(0);
-  }
-}
 
-@keyframes autoPopOut {
-  0% {
-    opacity: 1;
-    transform: scale(1) translateX(0);
+  .channelButtons {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
+    z-index: 101;
   }
-  100% {
-    opacity: 0;
-    transform: scale(0.5) translateX(30%);
+
+  .channelButton {
+    width: 255px;
+    height: 64px;
+    color: #fff;
+    font-family: Raleway, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    transition: 0.15s ease-in-out all;
+    cursor: pointer;
+
+    &:hover {
+      border-color: rgba(0, 0, 0, 0.05);
+    }
+    &:active {
+      border-color: rgba(0, 0, 0, 0.15);
+    }
   }
-}
 
-.autoPopBubble {
-  animation: autoPopIn 0.5s linear 1;
-  animation-fill-mode: both;
-  position: fixed;
-  bottom: 24px;
-  right: 100px;
-  background: #fff;
-  color: #333;
-  padding: 12px;
-  font-size: 14px;
-  max-width: 300px;
-  border-radius: 5px;
-  box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.3);
-  text-align: left;
-}
+  .channelLabel {
+    flex: 1 1 auto;
+    text-align: center;
+  }
 
-.autoPopBubble.animateOut {
-  animation: autoPopOut 0.25s linear 1;
-  animation-fill-mode: both;
+  .channelButtons a {
+    text-decoration: none;
+  }
+
+  .channelButton .channelIcon {
+    width: 45px;
+    margin-left: 12px;
+    text-align: center;
+  }
+
+  .channelButton .channelIcon img {
+    width: 45px;
+  }
+
+  .channelButton .channelIcon svg {
+    margin: 0 auto;
+  }
+
+  #smsButton {
+    background: #404552;
+    &:hover {
+      background: #313744;
+    }
+    &:active {
+      background: #272d3a;
+    }
+  }
+
+  #webchatButton {
+    background: #2bb780;
+    &:hover {
+      background: #27966d;
+    }
+    &:active {
+      background: #1c6e50;
+    }
+  }
+
+  #facebookButton {
+    background: #3a5ca9;
+    letter-spacing: 0.5px;
+    &:hover {
+      background: #33539e;
+    }
+    &:active {
+      background: #2e4c94;
+    }
+  }
+
+  #abcButton {
+    background: #6e7883;
+    &:hover {
+      background: #626d7a;
+    }
+    &:active {
+      background: #54606d;
+    }
+  }
+  .channelButtonIn {
+    animation: channelButtonIn 0.3s ease-in-out 1;
+    animation-fill-mode: both;
+  }
+
+  &.channelButtonsOut .channelButtonIn {
+    animation-name: channelButtonOut;
+  }
+
+  &.channelButtonsOut .channelOptionShadow {
+    animation-name: fadeOut;
+  }
+
+  .channelButtonIn-0 {
+    animation-delay: 0;
+  }
+
+  .channelButtonIn-1 {
+    animation-delay: calc(0.1s * 1);
+  }
+  .channelButtonIn-2 {
+    animation-delay: calc(0.1s * 2);
+  }
+  .channelButtonIn-3 {
+    animation-delay: calc(0.1s * 3);
+  }
 }
 
 @keyframes popupIn {

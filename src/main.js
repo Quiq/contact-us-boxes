@@ -16,8 +16,8 @@ var chat
 
 var launchWebchat = function () {
   webchatLaunched = true
-  document.querySelector('#contactUsButton').style.display = 'none'
-  document.querySelector('#contactChannelContainer').style.display = 'none'
+  document.querySelector('#QuiqContactUsButton').style.display = 'none'
+  document.querySelector('#QuiqContactUsButtons').style.display = 'none'
   chat.toggle()
 }
 
@@ -186,15 +186,15 @@ var _renderAutoPopMessage = function (message) {
 var _timeout = undefined
 
 const toggle = function () {
-  var container = document.querySelector('#contactChannelContainer')
-  var chatButton = document.querySelector('#contactUsButton')
+  var container = document.querySelector('#QuiqContactUsButtons')
+  var chatButton = document.querySelector('#QuiqContactUsButton')
   var open = container.style.display !== 'none'
 
   if (_timeout) {
     clearTimeout(_timeout)
   }
 
-  document.querySelectorAll('#contactUsButton .autoPopBubble').forEach(function (bubble) {
+  document.querySelectorAll('#QuiqContactUsButton .autoPopBubble').forEach(function (bubble) {
     bubble.classList.add('animateOut')
 
     setTimeout(function () {
@@ -220,7 +220,7 @@ const autoPop = function () {
   }
 
   _timeout = setTimeout(function () {
-    var container = document.getElementById('contactUsButton')
+    var container = document.getElementById('QuiqContactUsButton')
 
     container.appendChild(_renderAutoPopMessage(config.autoPop.message))
   }, config.autoPop.wait)
@@ -240,7 +240,7 @@ const QuiqContactUs = {
       ? importWebchat(config.channels.webchat)
       : Promise.resolve())
 
-    var container = document.querySelector('#contactChannelContainer .channelButtons')
+    var container = document.querySelector('#QuiqContactUsButtons .channelButtons')
     var totalChannels = (config.order || []).length
 
     ;(config.order || []).forEach(function (channel, i) {
@@ -287,7 +287,7 @@ const QuiqContactUs = {
   },
   toggle,
   close: function () {
-    var container = document.querySelector('#contactChannelContainer')
+    var container = document.querySelector('#QuiqContactUsButtons')
     container.style.display = 'none'
   },
   launchWebchat: launchWebchat,

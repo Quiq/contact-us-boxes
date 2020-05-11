@@ -1,6 +1,6 @@
 export default function renderMainButton({toggle, color}) {
   const button = document.createElement('button')
-  button.id = 'contactUsButton'
+  button.id = 'QuiqContactUsButton'
   button.onclick = () => toggle()
   button.style.backgroundColor = color || '#3f4654'
 

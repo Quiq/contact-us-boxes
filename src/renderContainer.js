@@ -1,7 +1,6 @@
 export default function renderContainer() {
   const container = document.createElement('div')
-  // TODO: Make this more unique and customizable
-  container.id = 'contactChannelContainer'
+  container.id = 'QuiqContactUsButtons'
   container.style.display = 'none'
 
   const shadow = document.createElement('div')

@@ -40,21 +40,21 @@
   transition: all 0.15s ease-in-out;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   animation: chatButtonIn 0.3s ease-in-out 1;
-}
 
-#contactUsButton.closed {
-  animation: chatButtonOut 0.3s ease-in-out 1;
-  animation-fill-mode: forwards;
-}
+  &.closed {
+    animation: chatButtonOut 0.3s ease-in-out 1;
+    animation-fill-mode: forwards;
+  }
 
-#contactUsButton:hover,
-#contactUsButton:focus {
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
-  outline: none;
-}
+  &:hover,
+  &:focus {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+    outline: none;
+  }
 
-#contactUsButton:active {
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  &:active {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  }
 }
 
 @keyframes fadeIn {
@@ -112,6 +112,13 @@
   align-items: center;
   transition: 0.15s ease-in-out all;
   cursor: pointer;
+
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.05);
+  }
+  &:active {
+    border-color: rgba(0, 0, 0, 0.15);
+  }
 }
 
 .channelLabel {
@@ -121,13 +128,6 @@
 
 .channelButtons a {
   text-decoration: none;
-}
-
-.channelButton:hover {
-  border-color: rgba(0, 0, 0, 0.05);
-}
-.channelButton:active {
-  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .channelButton .channelIcon {
@@ -146,43 +146,43 @@
 
 #smsButton {
   background: #404552;
-}
-#smsButton:hover {
-  background: #313744;
-}
-#smsButton:active {
-  background: #272d3a;
+  &:hover {
+    background: #313744;
+  }
+  &:active {
+    background: #272d3a;
+  }
 }
 
 #webchatButton {
   background: #2bb780;
-}
-#webchatButton:hover {
-  background: #27966d;
-}
-#webchatButton:active {
-  background: #1c6e50;
+  &:hover {
+    background: #27966d;
+  }
+  &:active {
+    background: #1c6e50;
+  }
 }
 
 #facebookButton {
   background: #3a5ca9;
   letter-spacing: 0.5px;
-}
-#facebookButton:hover {
-  background: #33539e;
-}
-#facebookButton:active {
-  background: #2e4c94;
+  &:hover {
+    background: #33539e;
+  }
+  &:active {
+    background: #2e4c94;
+  }
 }
 
 #abcButton {
   background: #6e7883;
-}
-#abcButton:hover {
-  background: #626d7a;
-}
-#abcButton:active {
-  background: #54606d;
+  &:hover {
+    background: #626d7a;
+  }
+  &:active {
+    background: #54606d;
+  }
 }
 
 @keyframes channelButtonIn {
@@ -316,24 +316,24 @@
   bottom: 0;
   left: 0;
   transition: 0.2s ease-in-out all;
-}
 
-.QuiqContactUs-modalContainer[data-visible='true'] {
-  background: rgba(0, 0, 0, 0.3);
-}
+  &[data-visible='true'] {
+    background: rgba(0, 0, 0, 0.3);
 
-.QuiqContactUs-modalContainer[data-visible='true'] .QuiqContactUs-modal {
-  animation: popupIn 0.3s 1;
-}
+    .QuiqContactUs-modal {
+      animation: popupIn 0.3s 1;
+    }
+  }
 
-.QuiqContactUs-modalContainer[data-visible='false'] {
-  background: transparent;
-  pointer-events: none;
-  visibility: hidden;
-}
+  &[data-visible='false'] {
+    background: transparent;
+    pointer-events: none;
+    visibility: hidden;
 
-.QuiqContactUs-modalContainer[data-visible='false'] .QuiqContactUs-modal {
-  animation: popupOut 0.3s 1;
+    .QuiqContactUs-modal {
+      animation: popupOut 0.3s 1;
+    }
+  }
 }
 
 .QuiqContactUs-modal {
@@ -365,16 +365,16 @@
   border-radius: 5px;
   transition: ease-in-out 0.15s background-color;
   cursor: pointer;
-}
 
-.QuiqContactUs-modalClose:hover,
-.QuiqContactUs-modalClose:focus {
-  background-color: rgba(0, 0, 0, 0.1);
-  outline: none;
-}
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+    outline: none;
+  }
 
-.QuiqContactUs-modalClose:active {
-  background-color: rgba(0, 0, 0, 0.3);
+  &:active {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .QuiqContactUs-modalPrompt,

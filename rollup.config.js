@@ -1,4 +1,7 @@
 import postcss from 'rollup-plugin-postcss'
+import babel, {getBabelOutputPlugin} from '@rollup/plugin-babel'
+import resolve from '@rollup/plugin-node-resolve'
+import {uglify} from 'rollup-plugin-uglify'
 import pkg from './package.json'
 
 export default [
@@ -9,6 +12,11 @@ export default [
       file: pkg.browser,
       format: 'iife',
     },
-    plugins: [postcss({extensions: ['.css']})],
+    plugins: [
+      resolve(),
+      postcss({extensions: ['.css']}),
+      babel({exclude: 'node_modules/**'}),
+      uglify(),
+    ],
   },
 ]

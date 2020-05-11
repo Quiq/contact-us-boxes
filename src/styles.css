@@ -283,13 +283,57 @@
   animation-fill-mode: both;
 }
 
+@keyframes popupIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popupOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
 .QuiqContactUs-modalContainer {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  transition: 0.2s ease-in-out all;
+}
+
+.QuiqContactUs-modalContainer[data-visible='true'] {
   background: rgba(0, 0, 0, 0.3);
+}
+
+.QuiqContactUs-modalContainer[data-visible='true'] .QuiqContactUs-modal {
+  animation: popupIn 0.3s 1;
+}
+
+.QuiqContactUs-modalContainer[data-visible='false'] {
+  background: transparent;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.QuiqContactUs-modalContainer[data-visible='false'] .QuiqContactUs-modal {
+  animation: popupOut 0.3s 1;
 }
 
 .QuiqContactUs-modal {
@@ -300,6 +344,7 @@
   margin: calc(50vh - 5rem) auto;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
 }
 
 .QuiqContactUs-modalTitle {

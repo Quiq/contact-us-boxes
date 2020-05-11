@@ -8,9 +8,21 @@ function formatNumber(smsNumber) {
   return `${numbers.slice(1, 4)}-${numbers.slice(4, 7)}-${numbers.slice(7, 11)}`
 }
 
+export function showSmsModal() {
+  const container = document.getElementById('QuiqContactUsSmsModal')
+  container.dataset.visible = true
+}
+
+export function hideSmsModal() {
+  const container = document.getElementById('QuiqContactUsSmsModal')
+  container.dataset.visible = false
+}
+
 export default function renderSmsModal({smsNumber}) {
   var container = document.createElement('div')
+  container.id = 'QuiqContactUsSmsModal'
   container.classList.add('QuiqContactUs-modalContainer')
+  container.dataset.visible = false
 
   var modal = document.createElement('div')
   modal.classList.add('QuiqContactUs-modal')
@@ -18,6 +30,7 @@ export default function renderSmsModal({smsNumber}) {
   var closeButton = document.createElement('button')
   closeButton.classList.add('QuiqContactUs-modalClose')
   closeButton.innerText = '×'
+  closeButton.onclick = hideSmsModal
   modal.appendChild(closeButton)
 
   var title = document.createElement('h1')

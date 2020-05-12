@@ -1,0 +1,462 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`custom button color 1`] = `
+<body>
+  <div
+    id="QuiqContactUsButtons"
+    style="display: none;"
+  >
+    <div
+      class="channelOptionShadow"
+    />
+    <div
+      class="channelButtons"
+    >
+      <div
+        class="channelButtonIn channelButtonIn-0"
+      >
+        <div
+          class="channelButton"
+          id="smsButton"
+        >
+          <div
+            class="channelIcon"
+          >
+            <img
+              src="https://www.quiq-cdn.com/wp-content/uploads/2018/08/SMS_white_150px.png"
+            />
+          </div>
+          <div
+            class="channelLabel"
+          >
+            SMS/Text
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    id="QuiqContactUsButton"
+    style="background-color: orange;"
+  >
+    <svg
+      height="30"
+      viewBox="0 0 576 500"
+      width="30"
+    >
+      <path
+        d="M416,160 C416,71.6 322.9,0 208,0 C93.1,0 0,71.6 0,160 C0,194.3 14.1,225.9 38,252 C24.6,282.2 2.5,306.2 2.2,306.5 C2.66453526e-15,308.8 -0.6,312.2 0.7,315.2 C2,318.2 4.8,320 8,320 C44.6,320 74.9,307.7 96.7,295 C128.9,310.7 167,320 208,320 C322.9,320 416,248.4 416,160 Z M538,380 C561.9,354 576,322.3 576,288 C576,221.1 522.5,163.8 446.7,139.9 C447.6,146.5 448,153.2 448,160 C448,265.9 340.3,352 208,352 C197.2,352 186.7,351.2 176.3,350.1 C207.8,407.6 281.8,448 368,448 C409,448 447.1,438.8 479.3,423 C501.1,435.7 531.4,448 568,448 C571.2,448 574.1,446.1 575.3,443.2 C576.6,440.3 576,436.9 573.8,434.5 C573.5,434.2 551.4,410.3 538,380 Z"
+      />
+    </svg>
+  </button>
+  <div
+    class="QuiqContactUs-modalContainer"
+    data-visible="false"
+    id="QuiqContactUsSmsModal"
+  >
+    <div
+      class="QuiqContactUs-modal"
+    >
+      <button
+        class="QuiqContactUs-modalClose"
+      />
+      <h1
+        class="QuiqContactUs-modalTitle"
+        style="font-family: Raleway;"
+      />
+      <div
+        class="QuiqContactUs-modalBody"
+        style="font-family: Raleway;"
+      >
+        <p
+          class="QuiqContactUs-modalPrompt"
+        />
+        <p
+          class="QuiqContactUs-modalPrompt"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`rendering buttons 1`] = `
+<body>
+  <div
+    id="QuiqContactUsButtons"
+    style="display: none;"
+  >
+    <div
+      class="channelOptionShadow"
+    />
+    <div
+      class="channelButtons"
+    >
+      <div
+        class="channelButtonIn channelButtonIn-3"
+      >
+        <div
+          class="channelButton"
+          id="smsButton"
+        >
+          <div
+            class="channelIcon"
+          >
+            <img
+              src="https://www.quiq-cdn.com/wp-content/uploads/2018/08/SMS_white_150px.png"
+            />
+          </div>
+          <div
+            class="channelLabel"
+          >
+            SMS/Text
+          </div>
+        </div>
+      </div>
+      <div
+        class="channelButtonIn channelButtonIn-2"
+      >
+        <a
+          href="https://www.messenger.com/t/test-facebook-id"
+          rel="noopener"
+          target="_blank"
+        >
+          <div
+            class="channelButton"
+            id="facebookButton"
+          >
+            <div
+              class="channelIcon"
+            >
+              <div
+                style="width: 50px; text-align: center;"
+              >
+                <svg
+                  enable-background="new 0 0 1000 1000"
+                  height="45"
+                  viewBox="0 0 1000 1000"
+                  width="45"
+                  xml:space="preserve"
+                >
+                  <path
+                    d="M499.5,103.503c-217.049,0-393.002,164.533-393.002,367.496 c0,115.46,56.945,218.482,146.002,285.854V897.5l134.118-74.394c35.754,10.009,73.646,15.389,112.882,15.389 c217.049,0,393.002-164.534,393.002-367.497S716.549,103.503,499.5,103.503z M540.891,596.308L439.247,490.714L243.5,598.967 l214.609-227.741L559.754,476.82L755.5,368.567L540.891,596.308z"
+                    fill="#ffffff"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="channelLabel"
+            >
+              Facebook Messenger
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="channelButtonIn channelButtonIn-1"
+      >
+        <a
+          href="https://bcrw.apple.com/urn:biz:your-apple-business-id"
+          rel="noopener"
+          target="_blank"
+        >
+          <div
+            class="channelButton"
+            id="abcButton"
+          >
+            <div
+              class="channelIcon"
+            >
+              <div
+                style="width: 50px; text-align: center;"
+              >
+                <div
+                  class="apple-business-chat-message-container"
+                  data-apple-business-id="your-apple-business-id"
+                  data-apple-icon-background-color="#ffffff"
+                  data-apple-icon-color="#6e7883"
+                />
+              </div>
+            </div>
+            <div
+              class="channelLabel"
+            >
+              Apple Business Chat
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="channelButtonIn channelButtonIn-0"
+      >
+        <div
+          class="channelButton"
+          id="webchatButton"
+        >
+          <div
+            class="channelIcon"
+          >
+            <img
+              src="https://www.quiq-cdn.com/wp-content/uploads/2018/08/webchat-white.png"
+            />
+          </div>
+          <div
+            class="channelLabel"
+          >
+            Web Chat
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    id="QuiqContactUsButton"
+    style="background-color: rgb(63, 70, 84);"
+  >
+    <svg
+      height="30"
+      viewBox="0 0 576 500"
+      width="30"
+    >
+      <path
+        d="M416,160 C416,71.6 322.9,0 208,0 C93.1,0 0,71.6 0,160 C0,194.3 14.1,225.9 38,252 C24.6,282.2 2.5,306.2 2.2,306.5 C2.66453526e-15,308.8 -0.6,312.2 0.7,315.2 C2,318.2 4.8,320 8,320 C44.6,320 74.9,307.7 96.7,295 C128.9,310.7 167,320 208,320 C322.9,320 416,248.4 416,160 Z M538,380 C561.9,354 576,322.3 576,288 C576,221.1 522.5,163.8 446.7,139.9 C447.6,146.5 448,153.2 448,160 C448,265.9 340.3,352 208,352 C197.2,352 186.7,351.2 176.3,350.1 C207.8,407.6 281.8,448 368,448 C409,448 447.1,438.8 479.3,423 C501.1,435.7 531.4,448 568,448 C571.2,448 574.1,446.1 575.3,443.2 C576.6,440.3 576,436.9 573.8,434.5 C573.5,434.2 551.4,410.3 538,380 Z"
+      />
+    </svg>
+  </button>
+  <div
+    class="QuiqContactUs-modalContainer"
+    data-visible="false"
+    id="QuiqContactUsSmsModal"
+  >
+    <div
+      class="QuiqContactUs-modal"
+    >
+      <button
+        class="QuiqContactUs-modalClose"
+      />
+      <h1
+        class="QuiqContactUs-modalTitle"
+        style="font-family: Raleway;"
+      />
+      <div
+        class="QuiqContactUs-modalBody"
+        style="font-family: Raleway;"
+      >
+        <p
+          class="QuiqContactUs-modalPrompt"
+        />
+        <p
+          class="QuiqContactUs-modalPrompt"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`rendering buttons 2`] = `
+<body>
+  <div
+    id="QuiqContactUsButtons"
+    style="display: block;"
+  >
+    <div
+      class="channelOptionShadow"
+    />
+    <div
+      class="channelButtons"
+    >
+      <div
+        class="channelButtonIn channelButtonIn-3"
+      >
+        <div
+          class="channelButton"
+          id="smsButton"
+        >
+          <div
+            class="channelIcon"
+          >
+            <img
+              src="https://www.quiq-cdn.com/wp-content/uploads/2018/08/SMS_white_150px.png"
+            />
+          </div>
+          <div
+            class="channelLabel"
+          >
+            SMS/Text
+          </div>
+        </div>
+      </div>
+      <div
+        class="channelButtonIn channelButtonIn-2"
+      >
+        <a
+          href="https://www.messenger.com/t/test-facebook-id"
+          rel="noopener"
+          target="_blank"
+        >
+          <div
+            class="channelButton"
+            id="facebookButton"
+          >
+            <div
+              class="channelIcon"
+            >
+              <div
+                style="width: 50px; text-align: center;"
+              >
+                <svg
+                  enable-background="new 0 0 1000 1000"
+                  height="45"
+                  viewBox="0 0 1000 1000"
+                  width="45"
+                  xml:space="preserve"
+                >
+                  <path
+                    d="M499.5,103.503c-217.049,0-393.002,164.533-393.002,367.496 c0,115.46,56.945,218.482,146.002,285.854V897.5l134.118-74.394c35.754,10.009,73.646,15.389,112.882,15.389 c217.049,0,393.002-164.534,393.002-367.497S716.549,103.503,499.5,103.503z M540.891,596.308L439.247,490.714L243.5,598.967 l214.609-227.741L559.754,476.82L755.5,368.567L540.891,596.308z"
+                    fill="#ffffff"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="channelLabel"
+            >
+              Facebook Messenger
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="channelButtonIn channelButtonIn-1"
+      >
+        <a
+          href="https://bcrw.apple.com/urn:biz:your-apple-business-id"
+          rel="noopener"
+          target="_blank"
+        >
+          <div
+            class="channelButton"
+            id="abcButton"
+          >
+            <div
+              class="channelIcon"
+            >
+              <div
+                style="width: 50px; text-align: center;"
+              >
+                <div
+                  class="apple-business-chat-message-container"
+                  data-apple-business-id="your-apple-business-id"
+                  data-apple-icon-background-color="#ffffff"
+                  data-apple-icon-color="#6e7883"
+                />
+              </div>
+            </div>
+            <div
+              class="channelLabel"
+            >
+              Apple Business Chat
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="channelButtonIn channelButtonIn-0"
+      >
+        <div
+          class="channelButton"
+          id="webchatButton"
+        >
+          <div
+            class="channelIcon"
+          >
+            <img
+              src="https://www.quiq-cdn.com/wp-content/uploads/2018/08/webchat-white.png"
+            />
+          </div>
+          <div
+            class="channelLabel"
+          >
+            Web Chat
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    id="QuiqContactUsButton"
+    style="background-color: rgb(63, 70, 84);"
+  >
+    <svg
+      height="30"
+      viewBox="0 0 576 500"
+      width="30"
+    >
+      <path
+        d="M416,160 C416,71.6 322.9,0 208,0 C93.1,0 0,71.6 0,160 C0,194.3 14.1,225.9 38,252 C24.6,282.2 2.5,306.2 2.2,306.5 C2.66453526e-15,308.8 -0.6,312.2 0.7,315.2 C2,318.2 4.8,320 8,320 C44.6,320 74.9,307.7 96.7,295 C128.9,310.7 167,320 208,320 C322.9,320 416,248.4 416,160 Z M538,380 C561.9,354 576,322.3 576,288 C576,221.1 522.5,163.8 446.7,139.9 C447.6,146.5 448,153.2 448,160 C448,265.9 340.3,352 208,352 C197.2,352 186.7,351.2 176.3,350.1 C207.8,407.6 281.8,448 368,448 C409,448 447.1,438.8 479.3,423 C501.1,435.7 531.4,448 568,448 C571.2,448 574.1,446.1 575.3,443.2 C576.6,440.3 576,436.9 573.8,434.5 C573.5,434.2 551.4,410.3 538,380 Z"
+      />
+    </svg>
+  </button>
+  <div
+    class="QuiqContactUs-modalContainer"
+    data-visible="false"
+    id="QuiqContactUsSmsModal"
+  >
+    <div
+      class="QuiqContactUs-modal"
+    >
+      <button
+        class="QuiqContactUs-modalClose"
+      />
+      <h1
+        class="QuiqContactUs-modalTitle"
+        style="font-family: Raleway;"
+      />
+      <div
+        class="QuiqContactUs-modalBody"
+        style="font-family: Raleway;"
+      >
+        <p
+          class="QuiqContactUs-modalPrompt"
+        />
+        <p
+          class="QuiqContactUs-modalPrompt"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`showing SMS modal 1`] = `
+<div
+  class="QuiqContactUs-modalContainer"
+  data-visible="true"
+  id="QuiqContactUsSmsModal"
+>
+  <div
+    class="QuiqContactUs-modal"
+  >
+    <button
+      class="QuiqContactUs-modalClose"
+    />
+    <h1
+      class="QuiqContactUs-modalTitle"
+      style="font-family: Raleway;"
+    />
+    <div
+      class="QuiqContactUs-modalBody"
+      style="font-family: Raleway;"
+    >
+      <p
+        class="QuiqContactUs-modalPrompt"
+      />
+      <p
+        class="QuiqContactUs-modalPrompt"
+      />
+    </div>
+  </div>
+</div>
+`;

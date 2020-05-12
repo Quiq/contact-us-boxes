@@ -13,6 +13,11 @@
   "files": [
     "dist"
   ],
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "<rootDir>/EmptyModule.js"
+    }
+  },
   "author": "natenorberg@gmail.com",
   "license": "MIT",
   "devDependencies": {

@@ -1,4 +1,4 @@
-export default function renderMainButton({toggle, color}) {
+export default function renderMainButton({toggle, color, renderTarget}) {
   const button = document.createElement('button')
   button.id = 'QuiqContactUsButton'
   button.onclick = () => toggle()
@@ -17,5 +17,5 @@ export default function renderMainButton({toggle, color}) {
 
   icon.appendChild(path)
   button.appendChild(icon)
-  document.body.appendChild(button)
+  renderTarget.appendChild(button)
 }

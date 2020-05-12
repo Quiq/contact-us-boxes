@@ -1,4 +1,4 @@
-export default function renderContainer() {
+export default function renderContainer({renderTarget}) {
   const container = document.createElement('div')
   container.id = 'QuiqContactUsButtons'
   container.style.display = 'none'
@@ -11,5 +11,5 @@ export default function renderContainer() {
   buttons.classList.add('channelButtons')
   container.appendChild(buttons)
 
-  document.body.appendChild(container)
+  renderTarget.appendChild(container)
 }

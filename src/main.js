@@ -22,10 +22,7 @@ const QuiqContactUs = {
     config = configuration
   },
   reconfigure(newConfig) {
-    const mergedConfig = updateConfig(config, newConfig)
-    console.log('new config is', mergedConfig)
-
-    this.configure(mergedConfig)
+    this.configure(updateConfig(config, newConfig))
     if (rendered) {
       this.unrender()
       this.render()

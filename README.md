@@ -33,6 +33,11 @@ This package can be installed using UNPKG and configured with a script tag
 </script>
 ```
 
+If you want to use a specific version rather than staying on the latest release, you can specify this in the `src` of the script tag.
+```html
+<script src="https://unpkg.com/@quiq/contact-us-boxes@1.2.3"></script>
+```
+
 ## Configuration
 
 ### `channels`
@@ -63,3 +68,17 @@ For example
 ```js
 order: ['abc', 'sms', 'facebook', 'webchat']
 ```
+
+### `styles` (Optional)
+There are some minimal styling overrides you can add to help this UI fit with your branding
+
+`buttonColor` - The color for the floating button to toggle the boxes. This can be any html color
+
+`fontFamily` - Set the text to use the same font family as the rest of your page instead of Raleway
+
+### `autoPop` (Optional)
+Allows you to add a message to display next to the floating button at the bottom of the page after a specified delay
+
+`message` - The message to display
+
+`wait` - The time in ms to wait before showing the message

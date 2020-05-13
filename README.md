@@ -38,6 +38,22 @@ If you want to use a specific version rather than staying on the latest release,
 <script src="https://unpkg.com/@quiq/contact-us-boxes@1.2.3"></script>
 ```
 
+## Actions
+
+### `configure`
+Configures the contact us boxes so that they point your customers to your contact center. (See [Configuration](#configuration))
+
+### `render`
+Causes the buttons to be added to the page
+
+### `unrender`
+Removes the buttons from the page
+
+### `reconfigure`
+Updates the configuration with the specified values. You don't need to specify the entire configuration here, only the values that are changing. If the buttons have rendered already, calling this will remove them and cause them to be rerendered with the new configuration.
+
+This is useful if you want to set up this UI globally on your site, but want to use some different values on a specific page
+
 ## Configuration
 
 ### `channels`
@@ -47,11 +63,15 @@ To add a channel, you need to add configuration so that the boxes point to your 
 
 `phoneNumber` - The 11 digit phone number for your SMS endpoint (i.e. 406-555-1234 would be written as `'14065551234'`)
 
+Note: If you're on a mobile device, tapping on the box will redirect you to your phone's SMS app. If you're on desktop it will show a modal with your phone number on it
+
 #### `webchat`
 
 `tenant` - The name of your quiq tenant
 
 `options` - Your [web chat options](https://developers.goquiq.com/docs/webchat/#/getting_started/configuration?id=setting-web-chat-options) (You can skip the rest of the webchat setup)
+
+Note: This option will not show up on mobile
 
 #### `facebook`
 
@@ -63,6 +83,8 @@ To add a channel, you need to add configuration so that the boxes point to your 
 
 ### `order`
 The order you want your contact buttons to appear in (from top to bottom). If you don't include a channel in the order it won't show up, even if it's configured. This can be used to easily enable or disable platforms.
+
+Note: This option will only show up if it's on a supported device
 
 For example
 ```js

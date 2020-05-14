@@ -62,6 +62,8 @@ export default async function render({config: configuration, renderTarget = docu
   if (config.order.includes('abc')) {
     window.appleBusinessChat.refresh()
   }
+
+  return {chat: chat || null}
 }
 
 function _wrapInLinkTag(element, href) {

@@ -18,7 +18,7 @@
       }
     </style>
 
-    <script src="https://unpkg.com/@quiq/contact-us-boxes@1.0.0-rc.0"></script>
+    <script src="dist/quiq-contact-boxes.umd.js"></script>
     <script defer>
       window.QuiqContactUs.configure({
         channels: {
@@ -30,17 +30,13 @@
             options: {contactPoint: 'default'},
           },
           facebook: {
-            id: '779195188888969',
+            id: 'your-facebook-id',
           },
           abc: {
             appleBusinessId: 'your-apple-business-id',
           },
         },
         order: ['sms', 'facebook', 'abc', 'webchat'],
-        // styles: {
-        //   buttonColor: 'purple',
-        //   fontFamily: '"Source Sans Pro", sans-serif',
-        // },
         autoPop: {
           message: 'See Quiq in action.  Ask a question or start a conversation now.',
           wait: 1000,

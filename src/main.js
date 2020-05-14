@@ -30,7 +30,7 @@ const QuiqContactUs = {
   },
   render() {
     rendered = true
-    render({config})
+    return render({config})
   },
   unrender() {
     document.querySelector('#QuiqContactUsButtons').remove()

@@ -1,20 +1,10 @@
 import 'regenerator-runtime/runtime'
 import validateConfiguration from './validateConfiguration'
 import render from './render'
+import deepmerge from 'deepmerge'
 
 var config = {}
 var rendered = false
-
-function updateConfig(oldConfig, newConfig) {
-  let channels = Object.assign({}, oldConfig.channels, newConfig.channels)
-
-  let styles
-  if (oldConfig.styles || newConfig.styles) {
-    styles = Object.assign({}, oldConfig.styles, newConfig.styles)
-  }
-
-  return Object.assign({}, oldConfig, newConfig, {channels, styles})
-}
 
 const QuiqContactUs = {
   configure: function (configuration) {
@@ -22,7 +12,7 @@ const QuiqContactUs = {
     config = configuration
   },
   reconfigure(newConfig) {
-    this.configure(updateConfig(config, newConfig))
+    this.configure(deepmerge(config, newConfig))
     if (rendered) {
       this.unrender()
       this.render()
@@ -33,9 +23,13 @@ const QuiqContactUs = {
     return render({config})
   },
   unrender() {
-    document.querySelector('#QuiqContactUsButtons').remove()
-    document.querySelector('#QuiqContactUsButton').remove()
-    document.querySelector('.QuiqContactUs-modalContainer').remove()
+    const container = document.querySelector('#QuiqContactUsButtons')
+    const button = document.querySelector('#QuiqContactUsButton')
+    const modal = document.querySelector('.QuiqContactUs-modalContainer')
+
+    container.remove()
+    button.remove()
+    modal.remove()
   },
   close: function () {
     var container = document.querySelector('#QuiqContactUsButtons')

@@ -15,7 +15,7 @@ export default [
     },
     plugins: [
       resolve(),
-      postcss({extensions: ['.scss', '.css']}),
+      postcss({extensions: ['.sass', '.css']}),
       babel({exclude: 'node_modules/**'}),
       commonjs(),
       // uglify(),

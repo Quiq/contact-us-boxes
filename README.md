@@ -2,11 +2,10 @@
 
 Easily add buttons to your website to allow your customers to contact you on their preferred platform
 
-Try it out at [quiq.com](https://quiq.com/)
-
 ## Getting Started
 
 This package can be installed using UNPKG and configured with a script tag
+
 ```html
 <script src="https://unpkg.com/@quiq/contact-us-boxes"></script>
 <script defer>
@@ -34,6 +33,7 @@ This package can be installed using UNPKG and configured with a script tag
 ```
 
 If you want to use a specific version rather than staying on the latest release, you can specify this in the `src` of the script tag.
+
 ```html
 <script src="https://unpkg.com/@quiq/contact-us-boxes@1.2.3"></script>
 ```
@@ -41,15 +41,19 @@ If you want to use a specific version rather than staying on the latest release,
 ## Actions
 
 ### `configure`
+
 Configures the contact us boxes so that they point your customers to your contact center. (See [Configuration](#configuration))
 
 ### `render`
+
 Causes the buttons to be added to the page
 
 ### `unrender`
+
 Removes the buttons from the page
 
 ### `reconfigure`
+
 Updates the configuration with the specified values. You don't need to specify the entire configuration here, only the values that are changing. If the buttons have rendered already, calling this will remove them and cause them to be rerendered with the new configuration.
 
 This is useful if you want to set up this UI globally on your site, but want to use some different values on a specific page
@@ -57,6 +61,7 @@ This is useful if you want to set up this UI globally on your site, but want to 
 ## Configuration
 
 ### `channels`
+
 To add a channel, you need to add configuration so that the boxes point to your business.
 
 #### `sms`
@@ -82,16 +87,19 @@ Note: This option will not show up on mobile
 `appleBusinessId` - The business ID you received when you registered your company with Apple for Business Chat
 
 ### `order`
+
 The order you want your contact buttons to appear in (from top to bottom). If you don't include a channel in the order it won't show up, even if it's configured. This can be used to easily enable or disable platforms.
 
 Note: This option will only show up if it's on a supported device
 
 For example
+
 ```js
 order: ['abc', 'sms', 'facebook', 'webchat']
 ```
 
 ### `styles` (Optional)
+
 There are some minimal styling overrides you can add to help this UI fit with your branding
 
 `buttonColor` - The color for the floating button to toggle the boxes. This can be any html color
@@ -99,6 +107,7 @@ There are some minimal styling overrides you can add to help this UI fit with yo
 `fontFamily` - Set the text to use the same font family as the rest of your page instead of Raleway
 
 ### `autoPop` (Optional)
+
 Allows you to add a message to display next to the floating button at the bottom of the page after a specified delay
 
 `message` - The message to display

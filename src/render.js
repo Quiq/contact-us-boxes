@@ -4,6 +4,7 @@ import importAppleScript from './importAppleScript'
 import importWebchat from './importWebchat'
 import renderSmsModal, {showSmsModal} from './renderSmsModal'
 import renderFacebookMessengerIcon from './renderFacebookMessengerIcon'
+import renderWhatsAppIcon from './renderWhatsAppIcon'
 import isMobile from './isMobile'
 import './styles.scss'
 
@@ -41,6 +42,11 @@ export default async function render({config: configuration, renderTarget = docu
       case 'facebook':
         if (config.channels.facebook && config.channels.facebook.id) {
           button = _renderFacebook(totalChannels - i - 1)
+        }
+        break
+      case 'whatsApp':
+        if (config.channels.whatsApp && config.channels.whatsApp.phoneNumber) {
+          button = _renderWhatsApp(totalChannels - i - 1)
         }
         break
       case 'abc':
@@ -178,6 +184,34 @@ function _renderFacebook(i) {
     button,
     'https://www.messenger.com/t/' + config.channels.facebook.id,
   )
+
+  var parent = _renderAnimationContainer(i)
+  parent.appendChild(buttonLink)
+
+  return parent
+}
+
+function _renderWhatsApp(i) {
+  var button = document.createElement('div')
+  button.id = 'whatsAppButton'
+  button.classList.add('channelButton')
+  if (config.styles?.fontFamily) {
+    button.style.fontFamily = config.styles.fontFamily
+  }
+
+  var img = renderWhatsAppIcon()
+
+  var spacer = document.createElement('div')
+  spacer.style.width = '50px'
+  spacer.style.textAlign = 'center'
+  spacer.appendChild(img)
+  var icon = _renderIconContainer(spacer)
+  var text = _renderText('WhatsApp')
+
+  button.appendChild(icon)
+  button.appendChild(text)
+
+  var buttonLink = _wrapInLinkTag(button, 'https://wa.me/' + config.channels.whatsApp.phoneNumber)
 
   var parent = _renderAnimationContainer(i)
   parent.appendChild(buttonLink)

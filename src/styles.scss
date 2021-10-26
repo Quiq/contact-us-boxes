@@ -247,6 +247,17 @@
     }
   }
 
+  #whatsAppButton {
+    background: #25d366;
+    letter-spacing: 0.5px;
+    &:hover {
+      background: #1fb255;
+    }
+    &:active {
+      background: #1da54f;
+    }
+  }
+
   #abcButton {
     background: #6e7883;
     &:hover {

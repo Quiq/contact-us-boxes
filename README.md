@@ -14,6 +14,9 @@ This package can be installed using UNPKG and configured with a script tag
       sms: {
         phoneNumber: '15558675309',
       },
+      whatsApp: {
+        phoneNumber: '15558675309',
+      },
       webchat: {
         tenant: 'your-tenant',
         options: {contactPoint: 'your-contact-point-id'},
@@ -25,7 +28,7 @@ This package can be installed using UNPKG and configured with a script tag
         appleBusinessId: 'your-apple-business-id',
       },
     },
-    order: ['sms', 'facebook', 'abc', 'webchat'],
+    order: ['sms', 'facebook', 'abc', 'webchat', 'whatsApp'],
   })
 
   window.QuiqContactUs.render()

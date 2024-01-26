@@ -62,7 +62,7 @@ export default async function render({config: configuration, renderTarget = docu
         }
         break
       case 'webchat':
-        if (!isMobile()) {
+        if (config.channels.webchat.useMobileChat || !isMobile()) {
           button = _renderWebchat(totalChannels - i - 1)
         }
         break

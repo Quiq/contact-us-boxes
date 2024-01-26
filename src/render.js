@@ -35,14 +35,12 @@ export default async function render({config: configuration, renderTarget = docu
     // Hide chat first. Otherwise, it will think it's supposed to be open and try to
     // set up some things too early
     chat.hide()
+    // When chat initializes, see if there's a conversation in progress already.
+    // If there is, just render that instead of the boxes
     chat.on('statusChanged', async (event) => {
-      console.log('status', event)
       document.querySelector('#QuiqContactUsButton').style.display = 'none'
       if (event.data.status === 'initialized') {
-        console.log('We rollin')
         const status = (await chat.defaultWebchat.getState()).conversationStatus
-        // const state = await chat.getState()
-        console.log('status', status)
         if (status === 'webchatConversationStatusActive') {
           launchWebchat()
         } else {
@@ -50,8 +48,6 @@ export default async function render({config: configuration, renderTarget = docu
         }
       }
     })
-  } else {
-    console.log('no chat')
   }
 
   var container = document.querySelector('#QuiqContactUsButtons .channelButtons')
@@ -288,19 +284,8 @@ function _renderAbc(i) {
 function launchWebchat() {
   document.querySelector('#QuiqContactUsButton').style.display = 'none'
   document.querySelector('#QuiqContactUsButtons').style.display = 'none'
-  console.log(document.querySelectorAll('.quiq-widget-element'))
-  // document.querySelector('.quiq-widget-element').style.display = 'block'
   document.body.classList.add('quiq-enable-chat')
-  // console.log(document.querySelector('.quiq-widget-element'))
-  // setTimeout(() => {
-  //   console.log(document.querySelector('.quiq-widget-element').style.display)
-  // setTimeout(() => {
-  // console.log('showing')
   chat.show()
-  // }, 0)
-  // }, 1000)
-  // console.log('wait for it...')
-  // console.log(document.querySelector('.quiq-widget-element').style.display)
 }
 
 function toggle() {

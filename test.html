@@ -30,7 +30,7 @@
           },
           webchat: {
             tenant: 'nate',
-            options: {pageConfigurationId: 'jokes'},
+            options: {pageConfigurationId: 'contact-us-boxes-test'},
           },
           facebook: {
             id: 'your-facebook-id',
@@ -40,26 +40,27 @@
           },
         },
         order: ['whatsApp', 'sms', 'facebook', 'abc', 'webchat'],
-        autoPop: {
-          message: 'See Quiq in action.  Ask a question or start a conversation now.',
-          wait: 1000,
-        },
+        // autoPop: {
+        //   message: 'See Quiq in action.  Ask a question or start a conversation now.',
+        //   wait: 1000,
+        // },
       })
 
-      window.QuiqContactUs.render().then(() => {
-        window.QuiqContactUs.reconfigure({
-          channels: {
-            webchat: {
-              options: {
-                height: 'calc(100vh - 106px)',
-                colors: {
-                  primary: 'purple',
-                },
-              },
-            },
-          },
-        })
-      })
+      window.QuiqContactUs.render()
+      // window.QuiqContactUs.render().then(() => {
+      //   window.QuiqContactUs.reconfigure({
+      //     channels: {
+      //       webchat: {
+      //         options: {
+      //           height: 'calc(100vh - 106px)',
+      //           colors: {
+      //             primary: 'purple',
+      //           },
+      //         },
+      //       },
+      //     },
+      //   })
+      // })
     </script>
     <h1>Test page</h1>
   </body>

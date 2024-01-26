@@ -1,5 +1,6 @@
 export default function importWebchat({tenant, options}) {
   return new Promise((resolve) => {
+    console.trace('importing chat')
     const script = document.createElement('script')
     script.setAttribute('src', `https://${tenant}.quiq-api.com/app/chat-ui/index.js`)
     script.setAttribute('charset', 'UTF-8')

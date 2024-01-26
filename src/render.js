@@ -16,7 +16,14 @@ var _timeout = undefined
 export default async function render({config: configuration, renderTarget = document.body}) {
   config = configuration
   renderContainer({renderTarget})
-  renderMainButton({toggle, color: config.styles?.buttonColor, renderTarget})
+  renderMainButton({
+    toggle,
+    color: config.styles?.buttonColor,
+    renderTarget,
+    // Hide the button at first if chat is loaded. Otherwise there can be a weird
+    // delay after selecting webchat if it's still initializing
+    startHidden: !!config.order.includes('webchat'),
+  })
   // Load external scripts if we need them
   await (config.order.includes('abc') ? importAppleScript() : Promise.resolve())
   chat = await (config.order.includes('webchat')

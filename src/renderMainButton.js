@@ -1,8 +1,11 @@
-export default function renderMainButton({toggle, color, renderTarget}) {
+export default function renderMainButton({toggle, color, renderTarget, startHidden}) {
   const button = document.createElement('button')
   button.id = 'QuiqContactUsButton'
   button.onclick = () => toggle()
   button.style.backgroundColor = color || '#3f4654'
+  if (startHidden) {
+    button.style.display = 'none'
+  }
 
   const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   icon.setAttribute('width', '30')

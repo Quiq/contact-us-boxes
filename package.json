@@ -1,6 +1,6 @@
 {
   "name": "@quiq/contact-us-boxes",
-  "version": "2.0.0-next.1",
+  "version": "2.0.0-next.2",
   "description": "A way to easily add a way for your customers to contact you through Quiq using their preferred platform",
   "main": "index.js",
   "browser": "dist/quiq-contact-boxes.umd.js",

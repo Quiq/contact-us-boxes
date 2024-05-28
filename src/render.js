@@ -45,9 +45,17 @@ export default async function render({config: configuration, renderTarget = docu
           launchWebchat()
         } else {
           document.querySelector('#QuiqContactUsButton').style.display = 'block'
+
+          // Start the autoPop timer once chat is ready
+          if (config.autoPop) {
+            autoPop()
+          }
         }
       }
     })
+  } else if (config.autoPop) {
+    // We don't need to wait for chat to load, so start the autoPop timer now
+    autoPop()
   }
 
   var container = document.querySelector('#QuiqContactUsButtons .channelButtons')

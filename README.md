@@ -4,10 +4,10 @@ Easily add buttons to your website to allow your customers to contact you on the
 
 ## Getting Started
 
-This package can be installed using UNPKG and configured with a script tag
+This package can be installed using Quiq's CDN and configured with a script tag
 
 ```html
-<script src="https://unpkg.com/@quiq/contact-us-boxes"></script>
+<script src="https://static.quiq-cdn.com/quiq-contact-us-boxes/index.js"></script>
 <script defer>
   window.QuiqContactUs.configure({
     channels: {
@@ -34,6 +34,7 @@ This package can be installed using UNPKG and configured with a script tag
   window.QuiqContactUs.render()
 </script>
 ```
+This package is also published as an npm module and can be imported using unpkg.
 
 If you want to use a specific version rather than staying on the latest release, you can specify this in the `src` of the script tag.
 

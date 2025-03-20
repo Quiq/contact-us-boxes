@@ -34,13 +34,7 @@ This package can be installed using Quiq's CDN and configured with a script tag
   window.QuiqContactUs.render()
 </script>
 ```
-This package is also published as an npm module and can be imported using unpkg.
 
-If you want to use a specific version rather than staying on the latest release, you can specify this in the `src` of the script tag.
-
-```html
-<script src="https://unpkg.com/@quiq/contact-us-boxes@1.2.3"></script>
-```
 
 ## Actions
 

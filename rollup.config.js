@@ -2,7 +2,7 @@ import postcss from 'rollup-plugin-postcss'
 import babel, {getBabelOutputPlugin} from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import {uglify} from 'rollup-plugin-uglify'
+// import {uglify} from 'rollup-plugin-uglify'
 import pkg from './package.json'
 
 export default [

@@ -20,13 +20,15 @@ test('legacy webchat import', async () => {
   }
   render({config: testConfig})
 
-  await waitFor(() =>
+  await waitFor(() => {
     expect(document.body.appendChild).toHaveBeenCalledWith(
       expect.objectContaining({
         src: 'https://nate.quiq-api.com/app/webchat/index.js',
       }),
-    ),
-  )
+    )
+    fireEvent.load(document.querySelector('script'))
+    expect(window.Quiq).toHaveBeenCalledWith(testConfig.channels.webchat.options)
+  })
 })
 
 test('chat 2.0 import', async () => {
@@ -41,11 +43,13 @@ test('chat 2.0 import', async () => {
   }
   render({config: testConfig})
 
-  await waitFor(() =>
+  await waitFor(() => {
     expect(document.body.appendChild).toHaveBeenCalledWith(
       expect.objectContaining({
         src: 'https://nate.quiq-api.com/app/chat-ui/index.js',
       }),
-    ),
-  )
+    )
+    fireEvent.load(document.querySelector('script'))
+    expect(window.Quiq).toHaveBeenCalledWith(testConfig.channels.webchat.options)
+  })
 })

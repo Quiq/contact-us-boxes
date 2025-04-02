@@ -35,7 +35,6 @@ This package can be installed using Quiq's CDN and configured with a script tag
 </script>
 ```
 
-
 ## Actions
 
 ### `configure`
@@ -102,7 +101,7 @@ There are some minimal styling overrides you can add to help this UI fit with yo
 
 `buttonColor` - The color for the floating button to toggle the boxes. This can be any html color
 
-`fontFamily` - Set the text to use the same font family as the rest of your page instead of Raleway
+`fontFamily` - Set the text to use the same font family as the rest of your page instead of Inter
 
 ### `autoPop` (Optional)
 

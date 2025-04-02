@@ -23,6 +23,10 @@ export default async function render({config: configuration, renderTarget = docu
     ? importWebchat(config.channels.webchat)
     : Promise.resolve())
 
+  if (config.autoPop) {
+    autoPop()
+  }
+
   var container = document.querySelector('#QuiqContactUsButtons .channelButtons')
   var totalChannels = (config.order || []).length
 

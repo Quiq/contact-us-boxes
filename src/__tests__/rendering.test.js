@@ -4,7 +4,7 @@ jest.mock('../importAppleScript')
 jest.mock('../importWebchat')
 import importAppleScript from '../importAppleScript'
 import importWebchat from '../importWebchat'
-import {getByText, fireEvent} from '@testing-library/dom'
+import {getByText, queryByText, fireEvent} from '@testing-library/dom'
 import {TestScheduler} from 'jest'
 
 beforeEach(() => {
@@ -90,4 +90,23 @@ test('custom button color', async () => {
   expect(document.body).toMatchSnapshot()
 
   expect(document.getElementById('QuiqContactUsButton').style.backgroundColor).toBe('orange')
+})
+
+test('autoPop', async () => {
+  jest.useFakeTimers()
+  const config = {
+    ...testConfig,
+    autoPop: {
+      message: 'Test autoPop text',
+      wait: 1000,
+    },
+  }
+  await renderButtons(config)
+
+  // Assert autoPop isn't showing yet
+  expect(queryByText(document.body, 'Test autoPop text')).toBe(null)
+
+  // Advance timer and assert it shows up
+  jest.advanceTimersByTime(1000)
+  expect(getByText(document.body, 'Test autoPop text')).not.toBe(null)
 })

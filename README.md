@@ -110,3 +110,32 @@ Allows you to add a message to display next to the floating button at the bottom
 `message` - The message to display
 
 `wait` - The time in ms to wait before showing the message
+
+
+
+# Making changes
+
+This package uses npm, so before doing anything you'll want to run `npm install`
+
+## Building
+
+Run `npm run build` to create a new bundle in the `dist/` directory.
+
+If you run `npm run develop`, the build will be rerun whenever changes are detected in the source code. 
+
+There is also a `test.html` file in the root of the directory for manual testing. An easy way to use the test page is with the [http-server](https://www.npmjs.com/package/http-server) package from npm. You can install it globally with
+```
+npm install --global http-server
+```
+
+Once installed, you can start the server with
+```
+http-server -p 8081
+```
+Once the server is running, the test page can be viewed at http://localhost:8081/test.html. (You can change the port to whatever you'd like)
+
+## Tests
+
+You can run the tests with `npm test`.
+
+If you want them to rerun each time you save a file, you can use `npm run jest`

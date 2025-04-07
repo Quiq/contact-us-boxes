@@ -71,7 +71,12 @@ Note: If you're on a mobile device, tapping on the box will redirect you to your
 
 `tenant` - The name of your quiq tenant
 
-`options` - Your [web chat options](https://developers.goquiq.com/docs/webchat/#/getting_started/configuration?id=setting-web-chat-options) (You can skip the rest of the webchat setup)
+`options` - Options that will be used to initialize Quiq webchat.
+
+The recommended way to connect to your Quiq site is to add a `pageConfigurationId` that connects with Conversation Starter. However, you can still use legacy webchat by setting `contactPoint` instead.
+
+- If you're using Conversation Starter, you can find documentation [here](https://developers.goquiq.com/docs/conversation-starter/#/reference/sdk/main)
+- If you're still using legacy webchat, you can find documentation [here](https://developers.goquiq.com/docs/webchat/#/getting_started/configuration?id=setting-web-chat-options) instead.
 
 `useMobileChat` - Whether the options will show up on mobile (default is `false`)
 

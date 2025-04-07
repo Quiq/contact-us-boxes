@@ -30,7 +30,8 @@
           },
           webchat: {
             tenant: 'nate',
-            options: {contactPoint: 'default'},
+            // options: {contactPoint: 'default'},
+            options: {pageConfigurationId: 'test-configuration'},
           },
           facebook: {
             id: 'your-facebook-id',
@@ -39,6 +40,7 @@
             appleBusinessId: 'your-apple-business-id',
           },
         },
+        // order: ['whatsApp', 'sms', 'facebook', 'abc'],
         order: ['whatsApp', 'sms', 'facebook', 'abc', 'webchat'],
         autoPop: {
           message: 'See Quiq in action.  Ask a question or start a conversation now.',
@@ -46,20 +48,21 @@
         },
       })
 
-      window.QuiqContactUs.render().then(() => {
-        window.QuiqContactUs.reconfigure({
-          channels: {
-            webchat: {
-              options: {
-                height: 'calc(100vh - 106px)',
-                colors: {
-                  primary: 'purple',
-                },
-              },
-            },
-          },
-        })
-      })
+      window.QuiqContactUs.render()
+      // .then(() => {
+      //   window.QuiqContactUs.reconfigure({
+      //     channels: {
+      //       webchat: {
+      //         options: {
+      //           height: 'calc(100vh - 106px)',
+      //           colors: {
+      //             primary: 'purple',
+      //           },
+      //         },
+      //       },
+      //     },
+      //   })
+      // })
     </script>
     <h1>Test page</h1>
   </body>

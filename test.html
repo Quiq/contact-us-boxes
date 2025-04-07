@@ -30,8 +30,8 @@
           },
           webchat: {
             tenant: 'nate',
-            options: {contactPoint: 'default'},
-            // options: {pageConfigurationId: 'test-configuration'},
+            // options: {contactPoint: 'default'},
+            options: {pageConfigurationId: 'test-configuration'},
           },
           facebook: {
             id: 'your-facebook-id',
@@ -48,20 +48,21 @@
         },
       })
 
-      window.QuiqContactUs.render().then(() => {
-        window.QuiqContactUs.reconfigure({
-          channels: {
-            webchat: {
-              options: {
-                height: 'calc(100vh - 106px)',
-                colors: {
-                  primary: 'purple',
-                },
-              },
-            },
-          },
-        })
-      })
+      window.QuiqContactUs.render()
+      // .then(() => {
+      //   window.QuiqContactUs.reconfigure({
+      //     channels: {
+      //       webchat: {
+      //         options: {
+      //           height: 'calc(100vh - 106px)',
+      //           colors: {
+      //             primary: 'purple',
+      //           },
+      //         },
+      //       },
+      //     },
+      //   })
+      // })
     </script>
     <h1>Test page</h1>
   </body>

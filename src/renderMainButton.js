@@ -1,8 +1,16 @@
-export default function renderMainButton({toggle, color, renderTarget}) {
+export default function renderMainButton({toggle, color, renderTarget, useChatV2}) {
   const button = document.createElement('button')
   button.id = 'QuiqContactUsButton'
   button.onclick = () => toggle()
   button.style.backgroundColor = color || '#3f4654'
+  if (useChatV2) {
+    // Hide the button at first if chat2.0 is loaded. Otherwise there can be a weird
+    // delay after selecting webchat if it's still initializing
+    button.style.display = 'none'
+  } else {
+    // Add a class for legacy chat. The button shows up in a slightly different spot
+    button.classList.add('legacy-chat')
+  }
 
   const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   icon.setAttribute('width', '30')

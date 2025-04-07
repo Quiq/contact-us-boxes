@@ -36,6 +36,7 @@ exports[`custom button color 1`] = `
     </div>
   </div>
   <button
+    class="legacy-chat"
     id="QuiqContactUsButton"
     style="background-color: orange;"
   >
@@ -211,6 +212,7 @@ exports[`rendering buttons 1`] = `
     </div>
   </div>
   <button
+    class="legacy-chat"
     id="QuiqContactUsButton"
     style="background-color: rgb(63, 70, 84);"
   >
@@ -386,6 +388,7 @@ exports[`rendering buttons 2`] = `
     </div>
   </div>
   <button
+    class="legacy-chat"
     id="QuiqContactUsButton"
     style="background-color: rgb(63, 70, 84);"
   >

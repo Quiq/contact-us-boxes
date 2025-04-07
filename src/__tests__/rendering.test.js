@@ -65,6 +65,27 @@ test('rendering buttons', async () => {
   expect(document.body).toMatchSnapshot()
 })
 
+test('legacy webchat', async () => {
+  await renderButtons({...testConfig})
+  expect(document.querySelector('#QuiqContactUsButton.legacy-chat')).not.toBeNull()
+})
+
+test('chat2.0 starts with button hidden', async () => {
+  const v2Config = {
+    ...testConfig,
+    channels: {
+      ...testConfig.channels,
+      webchat: {
+        tenant: 'nate',
+        options: {pageConfigurationId: 'default'},
+      },
+    },
+  }
+  await renderButtons(v2Config)
+  const button = document.querySelector('#QuiqContactUsButton')
+  expect(window.getComputedStyle(button).display).toBe('none')
+})
+
 test('showing SMS modal', async () => {
   await renderButtons({...testConfig})
 

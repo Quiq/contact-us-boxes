@@ -8,6 +8,12 @@ beforeEach(() => {
   jest.spyOn(document.body, 'appendChild')
 })
 
+afterEach(() => {
+  // delete window.Quiq
+  jest.restoreAllMocks()
+  document.body.innerHTML = ''
+})
+
 test('legacy webchat import', async () => {
   const testConfig = {
     channels: {
@@ -32,6 +38,9 @@ test('legacy webchat import', async () => {
 })
 
 test('chat 2.0 import', async () => {
+  window.Quiq = jest.fn()
+  jest.spyOn(document.body, 'appendChild')
+
   const testConfig = {
     channels: {
       webchat: {

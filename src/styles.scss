@@ -47,6 +47,14 @@
   }
 }
 
+.quiq-widget-element {
+  display: none;
+}
+
+.quiq-enable-chat .quiq-widget-element {
+  display: block;
+}
+
 #QuiqContactUsButton {
   border: none;
   border-radius: 100%;

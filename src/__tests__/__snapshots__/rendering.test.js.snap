@@ -36,6 +36,7 @@ exports[`custom button color 1`] = `
     </div>
   </div>
   <button
+    class="legacy-chat"
     id="QuiqContactUsButton"
     style="background-color: orange;"
   >
@@ -62,11 +63,11 @@ exports[`custom button color 1`] = `
       />
       <h1
         class="QuiqContactUs-modalTitle"
-        style="font-family: Raleway;"
+        style="font-family: Inter;"
       />
       <div
         class="QuiqContactUs-modalBody"
-        style="font-family: Raleway;"
+        style="font-family: Inter;"
       >
         <p
           class="QuiqContactUs-modalPrompt"
@@ -211,6 +212,7 @@ exports[`rendering buttons 1`] = `
     </div>
   </div>
   <button
+    class="legacy-chat"
     id="QuiqContactUsButton"
     style="background-color: rgb(63, 70, 84);"
   >
@@ -237,11 +239,11 @@ exports[`rendering buttons 1`] = `
       />
       <h1
         class="QuiqContactUs-modalTitle"
-        style="font-family: Raleway;"
+        style="font-family: Inter;"
       />
       <div
         class="QuiqContactUs-modalBody"
-        style="font-family: Raleway;"
+        style="font-family: Inter;"
       >
         <p
           class="QuiqContactUs-modalPrompt"
@@ -386,6 +388,7 @@ exports[`rendering buttons 2`] = `
     </div>
   </div>
   <button
+    class="legacy-chat"
     id="QuiqContactUsButton"
     style="background-color: rgb(63, 70, 84);"
   >
@@ -412,11 +415,11 @@ exports[`rendering buttons 2`] = `
       />
       <h1
         class="QuiqContactUs-modalTitle"
-        style="font-family: Raleway;"
+        style="font-family: Inter;"
       />
       <div
         class="QuiqContactUs-modalBody"
-        style="font-family: Raleway;"
+        style="font-family: Inter;"
       >
         <p
           class="QuiqContactUs-modalPrompt"
@@ -444,11 +447,11 @@ exports[`showing SMS modal 1`] = `
     />
     <h1
       class="QuiqContactUs-modalTitle"
-      style="font-family: Raleway;"
+      style="font-family: Inter;"
     />
     <div
       class="QuiqContactUs-modalBody"
-      style="font-family: Raleway;"
+      style="font-family: Inter;"
     >
       <p
         class="QuiqContactUs-modalPrompt"

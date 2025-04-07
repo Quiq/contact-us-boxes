@@ -19,7 +19,7 @@ This package can be installed using Quiq's CDN and configured with a script tag
       },
       webchat: {
         tenant: 'your-tenant',
-        options: {contactPoint: 'your-contact-point-id'},
+        options: {pageConfigurationId: 'your-page-configuration-id'},
       },
       facebook: {
         id: 'your-facebook-page-id',
@@ -34,7 +34,6 @@ This package can be installed using Quiq's CDN and configured with a script tag
   window.QuiqContactUs.render()
 </script>
 ```
-
 
 ## Actions
 
@@ -72,9 +71,14 @@ Note: If you're on a mobile device, tapping on the box will redirect you to your
 
 `tenant` - The name of your quiq tenant
 
-`options` - Your [web chat options](https://developers.goquiq.com/docs/webchat/#/getting_started/configuration?id=setting-web-chat-options) (You can skip the rest of the webchat setup)
+`options` - Options that will be used to initialize Quiq webchat.
 
-Note: This option will not show up on mobile
+The recommended way to connect to your Quiq site is to add a `pageConfigurationId` that connects with Conversation Starter. However, you can still use legacy webchat by setting `contactPoint` instead.
+
+- If you're using Conversation Starter, you can find documentation [here](https://developers.goquiq.com/docs/conversation-starter/#/reference/sdk/main)
+- If you're still using legacy webchat, you can find documentation [here](https://developers.goquiq.com/docs/webchat/#/getting_started/configuration?id=setting-web-chat-options) instead.
+
+`useMobileChat` - Whether the options will show up on mobile (default is `false`)
 
 #### `facebook`
 
@@ -102,7 +106,7 @@ There are some minimal styling overrides you can add to help this UI fit with yo
 
 `buttonColor` - The color for the floating button to toggle the boxes. This can be any html color
 
-`fontFamily` - Set the text to use the same font family as the rest of your page instead of Raleway
+`fontFamily` - Set the text to use the same font family as the rest of your page instead of Inter
 
 ### `autoPop` (Optional)
 
@@ -111,3 +115,33 @@ Allows you to add a message to display next to the floating button at the bottom
 `message` - The message to display
 
 `wait` - The time in ms to wait before showing the message
+
+# Making changes
+
+This package uses npm, so before doing anything you'll want to run `npm install`
+
+## Building
+
+Run `npm run build` to create a new bundle in the `dist/` directory.
+
+If you run `npm run develop`, the build will be rerun whenever changes are detected in the source code.
+
+There is also a `test.html` file in the root of the directory for manual testing. An easy way to use the test page is with the [http-server](https://www.npmjs.com/package/http-server) package from npm. You can install it globally with
+
+```
+npm install --global http-server
+```
+
+Once installed, you can start the server with
+
+```
+http-server -p 8081
+```
+
+Once the server is running, the test page can be viewed at http://localhost:8081/test.html. (You can change the port to whatever you'd like)
+
+## Tests
+
+You can run the tests with `npm test`.
+
+If you want them to rerun each time you save a file, you can use `npm run jest`

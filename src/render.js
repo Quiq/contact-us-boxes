@@ -15,13 +15,51 @@ var _timeout = undefined
 
 export default async function render({config: configuration, renderTarget = document.body}) {
   config = configuration
+
+  // Chat2.0 needs to do things a bit differently because of how it bootstraps
+  const useChatV2 =
+    config.order.includes('webchat') && !!config.channels.webchat?.options?.pageConfigurationId
+
   renderContainer({renderTarget})
-  renderMainButton({toggle, color: config.styles?.buttonColor, renderTarget})
+  renderMainButton({
+    toggle,
+    color: config.styles?.buttonColor,
+    renderTarget,
+    useChatV2,
+  })
   // Load external scripts if we need them
   await (config.order.includes('abc') ? importAppleScript() : Promise.resolve())
   chat = await (config.order.includes('webchat')
     ? importWebchat(config.channels.webchat)
     : Promise.resolve())
+
+  if (chat && useChatV2) {
+    window.chat = chat
+    // Hide chat first. Otherwise, it will think it's supposed to be open and try to
+    // set up some things too early
+    chat.hide()
+    // When chat initializes, see if there's a conversation in progress already.
+    // If there is, just render that instead of the boxes
+    chat.on('statusChanged', async (event) => {
+      document.querySelector('#QuiqContactUsButton').style.display = 'none'
+      if (event.data.status === 'initialized') {
+        const status = (await chat.defaultWebchat.getState()).conversationStatus
+        if (status === 'webchatConversationStatusActive') {
+          launchWebchat(true)
+        } else {
+          document.querySelector('#QuiqContactUsButton').style.display = 'block'
+
+          // Start the autoPop timer once chat is ready
+          if (config.autoPop) {
+            autoPop()
+          }
+        }
+      }
+    })
+  } else if (config.autoPop) {
+    // We don't need to wait for chat to load, so start the autoPop timer now
+    autoPop()
+  }
 
   var container = document.querySelector('#QuiqContactUsButtons .channelButtons')
   var totalChannels = (config.order || []).length
@@ -35,8 +73,8 @@ export default async function render({config: configuration, renderTarget = docu
         }
         break
       case 'webchat':
-        if (!isMobile()) {
-          button = _renderWebchat(totalChannels - i - 1)
+        if (config.channels.webchat.useMobileChat || !isMobile()) {
+          button = _renderWebchat(totalChannels - i - 1, useChatV2)
         }
         break
       case 'facebook':
@@ -148,7 +186,12 @@ function _renderSms(i, modalRenderTarget) {
   }
 }
 
-function _renderWebchat(i) {
+/**
+ *
+ * @param {number} i The index of the button
+ * @param {boolean} useV2 If chat2.0 should be used
+ */
+function _renderWebchat(i, useV2) {
   var button = _renderBasicButton(
     i,
     'webchatButton',
@@ -156,7 +199,7 @@ function _renderWebchat(i) {
     'Web Chat',
   )
 
-  button.onclick = launchWebchat
+  button.onclick = () => launchWebchat(useV2)
   return button
 }
 
@@ -254,10 +297,18 @@ function _renderAbc(i) {
   return parent
 }
 
-function launchWebchat() {
+/**
+ * @param {boolean} useV2 If using chat2.0
+ */
+function launchWebchat(useV2) {
   document.querySelector('#QuiqContactUsButton').style.display = 'none'
   document.querySelector('#QuiqContactUsButtons').style.display = 'none'
-  chat.toggle()
+  if (useV2) {
+    document.body.classList.add('quiq-enable-chat')
+    chat.show()
+  } else {
+    chat.toggle()
+  }
 }
 
 function toggle() {

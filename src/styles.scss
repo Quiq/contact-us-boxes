@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @keyframes chatButtonIn {
   0% {
@@ -47,6 +47,14 @@
   }
 }
 
+.quiq-widget-element {
+  display: none;
+}
+
+.quiq-enable-chat .quiq-widget-element {
+  display: block;
+}
+
 #QuiqContactUsButton {
   border: none;
   border-radius: 100%;
@@ -56,8 +64,8 @@
   align-items: center;
   position: fixed;
   box-sizing: border-box;
-  bottom: 24px;
-  right: 24px;
+  bottom: 1rem;
+  right: 1rem;
   width: 60px;
   height: 60px;
   color: #fff;
@@ -66,6 +74,11 @@
   transition: all 0.15s ease-in-out;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   animation: chatButtonIn 0.3s ease-in-out 1;
+
+  &.legacy-chat {
+    bottom: 24px;
+    right: 24px;
+  }
 
   &.closed {
     animation: chatButtonOut 0.3s ease-in-out 1;
@@ -175,8 +188,8 @@
     width: 255px;
     height: 64px;
     color: #fff;
-    font-family: Raleway, sans-serif;
-    font-weight: bold;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
     font-size: 16px;
     border-radius: 7px;
     margin-bottom: 10px;
@@ -227,12 +240,12 @@
   }
 
   #webchatButton {
-    background: #2bb780;
+    background: #090442;
     &:hover {
-      background: #27966d;
+      background: #060236;
     }
     &:active {
-      background: #1c6e50;
+      background: #040123;
     }
   }
 
@@ -292,6 +305,9 @@
   }
   .channelButtonIn-3 {
     animation-delay: calc(0.1s * 3);
+  }
+  .channelButtonIn-4 {
+    animation-delay: calc(0.1s * 4);
   }
 }
 
@@ -397,6 +413,6 @@
 }
 
 .QuiqContactUs-modalNumber {
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 1rem;
 }

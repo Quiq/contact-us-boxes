@@ -35,12 +35,12 @@ export default function renderSmsModal({smsNumber, fontFamily}) {
 
   var title = document.createElement('h1')
   title.classList.add('QuiqContactUs-modalTitle')
-  title.style.fontFamily = fontFamily || 'Raleway'
+  title.style.fontFamily = fontFamily || 'Inter'
   title.innerText = 'Text Us'
   modal.appendChild(title)
 
   var body = document.createElement('div')
-  body.style.fontFamily = fontFamily || 'Raleway'
+  body.style.fontFamily = fontFamily || 'Inter'
   body.classList.add('QuiqContactUs-modalBody')
 
   var prompt = document.createElement('p')

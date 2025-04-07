@@ -33,7 +33,6 @@ export default async function render({config: configuration, renderTarget = docu
     ? importWebchat(config.channels.webchat)
     : Promise.resolve())
 
-  // TODO : Cleanup this logic
   if (chat && useChatV2) {
     window.chat = chat
     // Hide chat first. Otherwise, it will think it's supposed to be open and try to

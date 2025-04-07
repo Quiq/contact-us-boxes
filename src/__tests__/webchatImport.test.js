@@ -9,7 +9,7 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-  // delete window.Quiq
+  delete window.Quiq
   jest.restoreAllMocks()
   document.body.innerHTML = ''
 })

@@ -34,38 +34,32 @@ export default async function render({config: configuration, renderTarget = docu
     : Promise.resolve())
 
   // TODO : Cleanup this logic
-  if (useChatV2) {
+  if (chat && useChatV2) {
     window.chat = chat
-    if (chat) {
-      // Hide chat first. Otherwise, it will think it's supposed to be open and try to
-      // set up some things too early
-      chat.hide()
-      // When chat initializes, see if there's a conversation in progress already.
-      // If there is, just render that instead of the boxes
-      chat.on('statusChanged', async (event) => {
-        document.querySelector('#QuiqContactUsButton').style.display = 'none'
-        if (event.data.status === 'initialized') {
-          const status = (await chat.defaultWebchat.getState()).conversationStatus
-          if (status === 'webchatConversationStatusActive') {
-            launchWebchat()
-          } else {
-            document.querySelector('#QuiqContactUsButton').style.display = 'block'
+    // Hide chat first. Otherwise, it will think it's supposed to be open and try to
+    // set up some things too early
+    chat.hide()
+    // When chat initializes, see if there's a conversation in progress already.
+    // If there is, just render that instead of the boxes
+    chat.on('statusChanged', async (event) => {
+      document.querySelector('#QuiqContactUsButton').style.display = 'none'
+      if (event.data.status === 'initialized') {
+        const status = (await chat.defaultWebchat.getState()).conversationStatus
+        if (status === 'webchatConversationStatusActive') {
+          launchWebchat()
+        } else {
+          document.querySelector('#QuiqContactUsButton').style.display = 'block'
 
-            // Start the autoPop timer once chat is ready
-            if (config.autoPop) {
-              autoPop()
-            }
+          // Start the autoPop timer once chat is ready
+          if (config.autoPop) {
+            autoPop()
           }
         }
-      })
-    } else if (config.autoPop) {
-      // We don't need to wait for chat to load, so start the autoPop timer now
-      autoPop()
-    }
-  } else {
-    if (config.autoPop) {
-      autoPop()
-    }
+      }
+    })
+  } else if (config.autoPop) {
+    // We don't need to wait for chat to load, so start the autoPop timer now
+    autoPop()
   }
 
   var container = document.querySelector('#QuiqContactUsButtons .channelButtons')

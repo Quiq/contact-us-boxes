@@ -30,8 +30,8 @@
           },
           webchat: {
             tenant: 'nate',
-            // options: {contactPoint: 'default'},
-            options: {pageConfigurationId: 'test-configuration'},
+            options: {contactPoint: 'default'},
+            // options: {pageConfigurationId: 'test-configuration'},
           },
           facebook: {
             id: 'your-facebook-id',
@@ -40,6 +40,7 @@
             appleBusinessId: 'your-apple-business-id',
           },
         },
+        // order: ['whatsApp', 'sms', 'facebook', 'abc'],
         order: ['whatsApp', 'sms', 'facebook', 'abc', 'webchat'],
         autoPop: {
           message: 'See Quiq in action.  Ask a question or start a conversation now.',

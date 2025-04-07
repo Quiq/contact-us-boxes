@@ -19,7 +19,7 @@ This package can be installed using Quiq's CDN and configured with a script tag
       },
       webchat: {
         tenant: 'your-tenant',
-        options: {contactPoint: 'your-contact-point-id'},
+        options: {pageConfigurationId: 'your-page-configuration-id'},
       },
       facebook: {
         id: 'your-facebook-page-id',

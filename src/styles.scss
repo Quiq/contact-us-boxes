@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @keyframes chatButtonIn {
   0% {
@@ -45,6 +45,14 @@
     opacity: 0;
     transform: scale(0.5) translateX(30%);
   }
+}
+
+.quiq-widget-element {
+  display: none;
+}
+
+.quiq-enable-chat .quiq-widget-element {
+  display: block;
 }
 
 #QuiqContactUsButton {
@@ -181,7 +189,7 @@
     height: 64px;
     color: #fff;
     font-family: Inter, sans-serif;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 16px;
     border-radius: 7px;
     margin-bottom: 10px;
@@ -405,6 +413,6 @@
 }
 
 .QuiqContactUs-modalNumber {
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 1rem;
 }

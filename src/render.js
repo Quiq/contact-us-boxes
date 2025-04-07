@@ -45,7 +45,7 @@ export default async function render({config: configuration, renderTarget = docu
       if (event.data.status === 'initialized') {
         const status = (await chat.defaultWebchat.getState()).conversationStatus
         if (status === 'webchatConversationStatusActive') {
-          launchWebchat()
+          launchWebchat(true)
         } else {
           document.querySelector('#QuiqContactUsButton').style.display = 'block'
 

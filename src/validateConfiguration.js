@@ -41,6 +41,14 @@ export default function validateConfiguration(config) {
   if (config.channels.webchat && !config.channels.webchat.options) {
     warn('No webchat options were specified')
   }
+  if (
+    config.channels.webchat?.options?.contactPoint &&
+    config.channels.webchat?.options?.pageConfigurationId
+  ) {
+    throw new Error(
+      "Both contactPoint and pageConfigurationId are set, but it's only valid to set one or the other. \nPlease set pageConfigurationId to use the current version of chat or contactPoint if you're using legacy webchat.",
+    )
+  }
 
   if (config.channels.facebook && !config.channels.facebook.id) {
     warnLoudly('id is required when using Facebook')

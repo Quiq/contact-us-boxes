@@ -4,7 +4,7 @@ Easily add buttons to your website to allow your customers to contact you on the
 
 ## Getting Started
 
-This package can be installed using Quiq's CDN and configured with a script tag
+The latest version of this package can be installed using Quiq's CDN and configured with a script tag
 
 ```html
 <script src="https://static.quiq-cdn.com/quiq-contact-us-boxes/index.js"></script>

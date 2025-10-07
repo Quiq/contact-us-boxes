@@ -207,6 +207,9 @@
   }
 
   .channelLabel {
+    // Adding a little extra padding to help with spacing of custom labels
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
     flex: 1 1 auto;
     text-align: center;
   }
@@ -227,6 +230,12 @@
 
   .channelButton .channelIcon svg {
     margin: 0 auto;
+  }
+
+  // This is to support RTL languages
+  .channelButtons .channelButton .channelIcon {
+    margin-inline-start: 12px;
+    margin-inline-end: 0;
   }
 
   #smsButton {

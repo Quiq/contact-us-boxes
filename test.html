@@ -24,23 +24,28 @@
         channels: {
           sms: {
             phoneNumber: '15558675309',
+            buttonLabel: 'SMS/Text',
           },
           whatsApp: {
             phoneNumber: '15558675309',
+            buttonLabel: 'WhatsApp',
           },
           webchat: {
             tenant: 'nate',
             // options: {contactPoint: 'default'},
             options: {pageConfigurationId: 'test-configuration'},
+            buttonLabel: 'Web Chat',
           },
           facebook: {
             id: 'your-facebook-id',
+            buttonLabel: 'Facebook Messenger',
           },
           abc: {
             appleBusinessId: 'your-apple-business-id',
+            buttonLabel: 'Apple Business Chat',
           },
         },
-        order: ['sms', 'facebook', 'abc', 'webchat'],
+        order: ['sms', 'facebook', 'abc', 'webchat', 'whatsApp'],
         autoPop: {
           message: 'See Quiq in action.  Ask a question or start a conversation now.',
           wait: 1000,

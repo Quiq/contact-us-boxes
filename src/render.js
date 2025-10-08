@@ -165,11 +165,12 @@ function _renderBasicButton(i, id, imgUrl, text) {
 }
 
 function _renderSms(i, modalRenderTarget) {
+  var buttonLabel = config.channels.sms.buttonLabel || 'SMS/Text'
   var button = _renderBasicButton(
     i,
     'smsButton',
     'https://www.quiq-cdn.com/wp-content/uploads/2018/08/SMS_white_150px.png',
-    'SMS/Text',
+    buttonLabel,
   )
 
   if (isMobile()) {
@@ -180,7 +181,11 @@ function _renderSms(i, modalRenderTarget) {
     const modalContainer = renderSmsModal({
       smsNumber: config.channels.sms.phoneNumber,
       fontFamily: config.styles?.fontFamily,
+      modalTitle: config.channels.sms.modalTitle,
+      modalPrompt: config.channels.sms.modalPrompt,
+      direction: getComputedStyle(modalRenderTarget).direction,
     })
+
     modalRenderTarget.appendChild(modalContainer)
     return button
   }
@@ -192,11 +197,12 @@ function _renderSms(i, modalRenderTarget) {
  * @param {boolean} useV2 If chat2.0 should be used
  */
 function _renderWebchat(i, useV2) {
+  var buttonLabel = config.channels.webchat.buttonLabel || 'Web Chat'
   var button = _renderBasicButton(
     i,
     'webchatButton',
     'https://www.quiq-cdn.com/wp-content/uploads/2018/08/webchat-white.png',
-    'Web Chat',
+    buttonLabel,
   )
 
   button.onclick = () => launchWebchat(useV2)
@@ -214,11 +220,12 @@ function _renderFacebook(i) {
   var img = renderFacebookMessengerIcon()
 
   var spacer = document.createElement('div')
-  spacer.style.width = '50px'
+  spacer.style.width = '45px'
   spacer.style.textAlign = 'center'
   spacer.appendChild(img)
   var icon = _renderIconContainer(spacer)
-  var text = _renderText('Facebook Messenger')
+  var buttonLabel = config.channels.facebook.buttonLabel || 'Facebook Messenger'
+  var text = _renderText(buttonLabel)
 
   button.appendChild(icon)
   button.appendChild(text)
@@ -245,11 +252,12 @@ function _renderWhatsApp(i) {
   var img = renderWhatsAppIcon()
 
   var spacer = document.createElement('div')
-  spacer.style.width = '50px'
+  spacer.style.width = '45px'
   spacer.style.textAlign = 'center'
   spacer.appendChild(img)
   var icon = _renderIconContainer(spacer)
-  var text = _renderText('WhatsApp')
+  var buttonLabel = config.channels.whatsApp.buttonLabel || 'WhatsApp'
+  var text = _renderText(buttonLabel)
 
   button.appendChild(icon)
   button.appendChild(text)
@@ -277,11 +285,12 @@ function _renderAbc(i) {
   icon.dataset.appleBusinessId = config.channels.abc.appleBusinessId
 
   var spacer = document.createElement('div')
-  spacer.style.width = '50px'
+  spacer.style.width = '45px'
   spacer.style.textAlign = 'center'
   spacer.appendChild(icon)
   var icon = _renderIconContainer(spacer)
-  var text = _renderText('Apple Business Chat')
+  var buttonLabel = config.channels.abc.buttonLabel || 'Apple Business Chat'
+  var text = _renderText(buttonLabel)
 
   button.appendChild(icon)
   button.appendChild(text)

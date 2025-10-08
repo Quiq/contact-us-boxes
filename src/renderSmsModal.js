@@ -18,7 +18,13 @@ export function hideSmsModal() {
   container.dataset.visible = false
 }
 
-export default function renderSmsModal({smsNumber, fontFamily}) {
+export default function renderSmsModal({
+  smsNumber,
+  fontFamily,
+  modalTitle,
+  modalPrompt,
+  direction = 'ltr',
+}) {
   var container = document.createElement('div')
   container.id = 'QuiqContactUsSmsModal'
   container.classList.add('QuiqContactUs-modalContainer')
@@ -29,6 +35,9 @@ export default function renderSmsModal({smsNumber, fontFamily}) {
 
   var closeButton = document.createElement('button')
   closeButton.classList.add('QuiqContactUs-modalClose')
+  if (direction === 'rtl') {
+    closeButton.classList.add('QuiqContactUs-modalClose-rightToLeft')
+  }
   closeButton.innerText = '×'
   closeButton.onclick = hideSmsModal
   modal.appendChild(closeButton)
@@ -36,7 +45,7 @@ export default function renderSmsModal({smsNumber, fontFamily}) {
   var title = document.createElement('h1')
   title.classList.add('QuiqContactUs-modalTitle')
   title.style.fontFamily = fontFamily || 'Inter'
-  title.innerText = 'Text Us'
+  title.innerText = modalTitle || 'Text Us'
   modal.appendChild(title)
 
   var body = document.createElement('div')
@@ -45,7 +54,7 @@ export default function renderSmsModal({smsNumber, fontFamily}) {
 
   var prompt = document.createElement('p')
   prompt.classList.add('QuiqContactUs-modalPrompt')
-  prompt.innerText = 'Please text us at'
+  prompt.innerText = modalPrompt || 'Please text us at'
   body.appendChild(prompt)
 
   var formattedNumber = document.createElement('p')

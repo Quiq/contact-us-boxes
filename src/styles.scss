@@ -207,6 +207,9 @@
   }
 
   .channelLabel {
+    // Adding a little extra padding to help with spacing of custom labels
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
     flex: 1 1 auto;
     text-align: center;
   }
@@ -217,8 +220,10 @@
 
   .channelButton .channelIcon {
     width: 45px;
-    margin-left: 12px;
     text-align: center;
+    // This is to support RTL languages
+    margin-inline-start: 12px;
+    margin-inline-end: 0;
   }
 
   .channelButton .channelIcon img {
@@ -393,6 +398,11 @@
   border-radius: 5px;
   transition: ease-in-out 0.15s background-color;
   cursor: pointer;
+
+  &.QuiqContactUs-modalClose-rightToLeft {
+    float: left;
+    margin: -0.5rem 0 0 -0.5rem;
+  }
 
   &:hover,
   &:focus {

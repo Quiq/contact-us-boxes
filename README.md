@@ -13,19 +13,24 @@ The latest version of this package can be installed using Quiq's CDN and configu
     channels: {
       sms: {
         phoneNumber: '15558675309',
+        buttonLabel: 'SMS/Text',
       },
       whatsApp: {
         phoneNumber: '15558675309',
+        buttonLabel: 'WhatsApp',
       },
       webchat: {
         tenant: 'your-tenant',
         options: {pageConfigurationId: 'your-page-configuration-id'},
+        buttonLabel: 'Web Chat',
       },
       facebook: {
         id: 'your-facebook-page-id',
+        buttonLabel: 'Facebook Messenger',
       },
       abc: {
         appleBusinessId: 'your-apple-business-id',
+        buttonLabel: 'Apple Business Chat',
       },
     },
     order: ['sms', 'facebook', 'abc', 'webchat', 'whatsApp'],
@@ -67,6 +72,8 @@ To add a channel, you need to add configuration so that the boxes point to your 
 
 Note: If you're on a mobile device, tapping on the box will redirect you to your phone's SMS app. If you're on desktop it will show a modal with your phone number on it
 
+`buttonLabel` - The button label for the SMS channel.
+
 #### `webchat`
 
 `tenant` - The name of your quiq tenant
@@ -80,13 +87,25 @@ The recommended way to connect to your Quiq site is to add a `pageConfigurationI
 
 `useMobileChat` - Whether the options will show up on mobile (default is `false`)
 
+`buttonLabel` - The button label for the Web Chat channel.
+
 #### `facebook`
 
 `id` - Your facebook page id
 
+`buttonLabel` - The button label for the Facebook channel.
+
 #### `abc`
 
 `appleBusinessId` - The business ID you received when you registered your company with Apple for Business Chat
+
+`buttonLabel` - The button label for the Apple Business Chat channel.
+
+#### `whatsApp`
+
+`phoneNumber` - The 11 digit phone number for your WhatsApp endpoint (i.e. 406-555-1234 would be written as `'14065551234'`)
+
+`buttonLabel` - The button label for the WhatsApp channel.
 
 ### `order`
 

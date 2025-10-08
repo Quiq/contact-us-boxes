@@ -399,6 +399,11 @@
   transition: ease-in-out 0.15s background-color;
   cursor: pointer;
 
+  &.QuiqContactUs-modalClose-rightToLeft {
+    float: left;
+    margin: -0.5rem 0 0 -0.5rem;
+  }
+
   &:hover,
   &:focus {
     background-color: rgba(0, 0, 0, 0.1);

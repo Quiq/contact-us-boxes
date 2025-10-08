@@ -181,7 +181,11 @@ function _renderSms(i, modalRenderTarget) {
     const modalContainer = renderSmsModal({
       smsNumber: config.channels.sms.phoneNumber,
       fontFamily: config.styles?.fontFamily,
+      modalTitle: config.channels.sms.modalTitle,
+      modalPrompt: config.channels.sms.modalPrompt,
+      direction: getComputedStyle(modalRenderTarget).direction,
     })
+
     modalRenderTarget.appendChild(modalContainer)
     return button
   }

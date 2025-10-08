@@ -74,6 +74,10 @@ Note: If you're on a mobile device, tapping on the box will redirect you to your
 
 `buttonLabel` - The button label for the SMS channel.
 
+`modalTitle` - The title in the modal presented when you select SMS.
+
+`modalPrompt` - The secondary prompt text in the modal presented when you select SMS.
+
 #### `webchat`
 
 `tenant` - The name of your quiq tenant

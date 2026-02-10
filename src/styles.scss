@@ -185,6 +185,19 @@
   }
 
   .channelButton {
+    /* Reset button styles so it matches the previous div appearance */
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: inherit;
+    display: block;
+    text-align: inherit;
+
     width: 255px;
     height: 64px;
     color: #fff;
@@ -232,6 +245,14 @@
 
   .channelButton .channelIcon svg {
     margin: 0 auto;
+  }
+
+  // Focus styling for the chat buttons
+  // and a little extra to make sure the <button /> and <a /> are both styled the same
+  .channelButtonFocus:focus {
+    transition: 0.15s ease-in-out outline-offset;
+    outline-offset: 4px;
+    border-radius: 7px;
   }
 
   #smsButton {

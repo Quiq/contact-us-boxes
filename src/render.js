@@ -110,11 +110,13 @@ export default async function render({config: configuration, renderTarget = docu
   return {chat: chat || null}
 }
 
-function _wrapInLinkTag(element, href) {
+function _wrapInLinkTag(element, href, ariaLabel) {
   var buttonLink = document.createElement('a')
+  buttonLink.classList.add('channelButtonFocus')
   buttonLink.href = href
   buttonLink.target = '_blank'
   buttonLink.rel = 'noopener'
+  buttonLink.ariaLabel = ariaLabel
   buttonLink.appendChild(element)
 
   return buttonLink
@@ -141,17 +143,18 @@ function _renderText(text) {
   return container
 }
 
-function _renderBasicButton(i, id, imgUrl, text) {
-  var button = document.createElement('div')
+function _renderBasicButton(i, id, imgUrl, text, imgAriaLabel) {
+  var button = document.createElement('button')
   button.id = id
   button.classList.add('channelButton')
+  button.classList.add('channelButtonFocus')
   if (config.styles?.fontFamily) {
     button.style.fontFamily = config.styles.fontFamily
   }
 
   var img = document.createElement('img')
   img.src = imgUrl
-
+  img.ariaLabel = imgAriaLabel
   var icon = _renderIconContainer(img)
   var text = _renderText(text)
 
@@ -171,11 +174,12 @@ function _renderSms(i, modalRenderTarget) {
     'smsButton',
     'https://www.quiq-cdn.com/wp-content/uploads/2018/08/SMS_white_150px.png',
     buttonLabel,
+    'SMS/Text Icon',
   )
 
   if (isMobile()) {
     // If we're on a phone, this should just be an sms link
-    return _wrapInLinkTag(button, 'sms:+' + config.channels.sms.phoneNumber)
+    return _wrapInLinkTag(button, 'sms:+' + config.channels.sms.phoneNumber, 'SMS/Text')
   } else {
     button.onclick = showSmsModal
     const modalContainer = renderSmsModal({
@@ -203,6 +207,7 @@ function _renderWebchat(i, useV2) {
     'webchatButton',
     'https://www.quiq-cdn.com/wp-content/uploads/2018/08/webchat-white.png',
     buttonLabel,
+    'Web Chat Icon',
   )
 
   button.onclick = () => launchWebchat(useV2)
@@ -233,6 +238,7 @@ function _renderFacebook(i) {
   var buttonLink = _wrapInLinkTag(
     button,
     'https://www.messenger.com/t/' + config.channels.facebook.id,
+    'Facebook Messenger',
   )
 
   var parent = _renderAnimationContainer(i)
@@ -262,7 +268,11 @@ function _renderWhatsApp(i) {
   button.appendChild(icon)
   button.appendChild(text)
 
-  var buttonLink = _wrapInLinkTag(button, 'https://wa.me/' + config.channels.whatsApp.phoneNumber)
+  var buttonLink = _wrapInLinkTag(
+    button,
+    'https://wa.me/' + config.channels.whatsApp.phoneNumber,
+    'WhatsApp',
+  )
 
   var parent = _renderAnimationContainer(i)
   parent.appendChild(buttonLink)
@@ -283,6 +293,7 @@ function _renderAbc(i) {
   icon.dataset.appleIconBackgroundColor = '#ffffff'
   icon.dataset.appleIconColor = '#6e7883'
   icon.dataset.appleBusinessId = config.channels.abc.appleBusinessId
+  icon.setAttribute('data-apple-icon-title', 'Apple Business Chat')
 
   var spacer = document.createElement('div')
   spacer.style.width = '45px'
@@ -298,6 +309,7 @@ function _renderAbc(i) {
   var buttonLink = _wrapInLinkTag(
     button,
     'https://bcrw.apple.com/urn:biz:' + config.channels.abc.appleBusinessId,
+    'Apple Business Chat',
   )
 
   var parent = _renderAnimationContainer(i)
@@ -346,6 +358,9 @@ function toggle() {
     }, 700)
   } else {
     container.style.display = 'block'
+
+    // Focusing the first chat button in the list
+    document.querySelector('#QuiqContactUsButtons .channelButton:first-child').focus()
   }
 }
 

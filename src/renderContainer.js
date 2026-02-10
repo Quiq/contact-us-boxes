@@ -8,6 +8,7 @@ export default function renderContainer({renderTarget}) {
   container.appendChild(shadow)
 
   const buttons = document.createElement('div')
+  buttons.role = 'region'
   buttons.classList.add('channelButtons')
   container.appendChild(buttons)
 

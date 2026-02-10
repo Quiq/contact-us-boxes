@@ -15,8 +15,8 @@ exports[`custom button color 1`] = `
       <div
         class="channelButtonIn channelButtonIn-0"
       >
-        <div
-          class="channelButton"
+        <button
+          class="channelButton channelButtonFocus"
           id="smsButton"
         >
           <div
@@ -31,7 +31,7 @@ exports[`custom button color 1`] = `
           >
             SMS/Text
           </div>
-        </div>
+        </button>
       </div>
     </div>
   </div>
@@ -96,8 +96,8 @@ exports[`rendering buttons 1`] = `
       <div
         class="channelButtonIn channelButtonIn-3"
       >
-        <div
-          class="channelButton"
+        <button
+          class="channelButton channelButtonFocus"
           id="smsButton"
         >
           <div
@@ -112,12 +112,13 @@ exports[`rendering buttons 1`] = `
           >
             SMS/Text
           </div>
-        </div>
+        </button>
       </div>
       <div
         class="channelButtonIn channelButtonIn-2"
       >
         <a
+          class="channelButtonFocus"
           href="https://www.messenger.com/t/test-facebook-id"
           rel="noopener"
           target="_blank"
@@ -158,6 +159,7 @@ exports[`rendering buttons 1`] = `
         class="channelButtonIn channelButtonIn-1"
       >
         <a
+          class="channelButtonFocus"
           href="https://bcrw.apple.com/urn:biz:your-apple-business-id"
           rel="noopener"
           target="_blank"
@@ -177,6 +179,7 @@ exports[`rendering buttons 1`] = `
                   data-apple-business-id="your-apple-business-id"
                   data-apple-icon-background-color="#ffffff"
                   data-apple-icon-color="#6e7883"
+                  data-apple-icon-title="Apple Business Chat"
                 />
               </div>
             </div>
@@ -191,8 +194,8 @@ exports[`rendering buttons 1`] = `
       <div
         class="channelButtonIn channelButtonIn-0"
       >
-        <div
-          class="channelButton"
+        <button
+          class="channelButton channelButtonFocus"
           id="webchatButton"
         >
           <div
@@ -207,7 +210,7 @@ exports[`rendering buttons 1`] = `
           >
             Web Chat
           </div>
-        </div>
+        </button>
       </div>
     </div>
   </div>
@@ -272,8 +275,8 @@ exports[`rendering buttons 2`] = `
       <div
         class="channelButtonIn channelButtonIn-3"
       >
-        <div
-          class="channelButton"
+        <button
+          class="channelButton channelButtonFocus"
           id="smsButton"
         >
           <div
@@ -288,12 +291,13 @@ exports[`rendering buttons 2`] = `
           >
             SMS/Text
           </div>
-        </div>
+        </button>
       </div>
       <div
         class="channelButtonIn channelButtonIn-2"
       >
         <a
+          class="channelButtonFocus"
           href="https://www.messenger.com/t/test-facebook-id"
           rel="noopener"
           target="_blank"
@@ -334,6 +338,7 @@ exports[`rendering buttons 2`] = `
         class="channelButtonIn channelButtonIn-1"
       >
         <a
+          class="channelButtonFocus"
           href="https://bcrw.apple.com/urn:biz:your-apple-business-id"
           rel="noopener"
           target="_blank"
@@ -353,6 +358,7 @@ exports[`rendering buttons 2`] = `
                   data-apple-business-id="your-apple-business-id"
                   data-apple-icon-background-color="#ffffff"
                   data-apple-icon-color="#6e7883"
+                  data-apple-icon-title="Apple Business Chat"
                 />
               </div>
             </div>
@@ -367,8 +373,8 @@ exports[`rendering buttons 2`] = `
       <div
         class="channelButtonIn channelButtonIn-0"
       >
-        <div
-          class="channelButton"
+        <button
+          class="channelButton channelButtonFocus"
           id="webchatButton"
         >
           <div
@@ -383,7 +389,7 @@ exports[`rendering buttons 2`] = `
           >
             Web Chat
           </div>
-        </div>
+        </button>
       </div>
     </div>
   </div>

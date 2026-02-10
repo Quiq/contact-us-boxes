@@ -110,13 +110,16 @@ export default async function render({config: configuration, renderTarget = docu
   return {chat: chat || null}
 }
 
-function _wrapInLinkTag(element, href, ariaLabel) {
+function _wrapInLinkTag(element, href, ariaLabel, disableTabbing = false) {
   var buttonLink = document.createElement('a')
   buttonLink.classList.add('channelButtonFocus')
   buttonLink.href = href
   buttonLink.target = '_blank'
   buttonLink.rel = 'noopener'
   buttonLink.ariaLabel = ariaLabel
+  if (disableTabbing) {
+    buttonLink.setAttribute('tabindex', '-1')
+  }
   buttonLink.appendChild(element)
 
   return buttonLink
@@ -143,7 +146,7 @@ function _renderText(text) {
   return container
 }
 
-function _renderBasicButton(i, id, imgUrl, text, imgAriaLabel) {
+function _renderBasicButton(i, id, imgUrl, text) {
   var button = document.createElement('button')
   button.id = id
   button.classList.add('channelButton')
@@ -154,7 +157,7 @@ function _renderBasicButton(i, id, imgUrl, text, imgAriaLabel) {
 
   var img = document.createElement('img')
   img.src = imgUrl
-  img.ariaLabel = imgAriaLabel
+  img.ariaLabel = `${text} Icon`
   var icon = _renderIconContainer(img)
   var text = _renderText(text)
 
@@ -174,12 +177,11 @@ function _renderSms(i, modalRenderTarget) {
     'smsButton',
     'https://www.quiq-cdn.com/wp-content/uploads/2018/08/SMS_white_150px.png',
     buttonLabel,
-    'SMS/Text Icon',
   )
 
   if (isMobile()) {
     // If we're on a phone, this should just be an sms link
-    return _wrapInLinkTag(button, 'sms:+' + config.channels.sms.phoneNumber, 'SMS/Text')
+    return _wrapInLinkTag(button, 'sms:+' + config.channels.sms.phoneNumber, buttonLabel)
   } else {
     button.onclick = showSmsModal
     const modalContainer = renderSmsModal({
@@ -207,7 +209,6 @@ function _renderWebchat(i, useV2) {
     'webchatButton',
     'https://www.quiq-cdn.com/wp-content/uploads/2018/08/webchat-white.png',
     buttonLabel,
-    'Web Chat Icon',
   )
 
   button.onclick = () => launchWebchat(useV2)
@@ -238,7 +239,7 @@ function _renderFacebook(i) {
   var buttonLink = _wrapInLinkTag(
     button,
     'https://www.messenger.com/t/' + config.channels.facebook.id,
-    'Facebook Messenger',
+    buttonLabel,
   )
 
   var parent = _renderAnimationContainer(i)
@@ -271,7 +272,7 @@ function _renderWhatsApp(i) {
   var buttonLink = _wrapInLinkTag(
     button,
     'https://wa.me/' + config.channels.whatsApp.phoneNumber,
-    'WhatsApp',
+    buttonLabel,
   )
 
   var parent = _renderAnimationContainer(i)
@@ -306,10 +307,13 @@ function _renderAbc(i) {
   button.appendChild(icon)
   button.appendChild(text)
 
+  // Note: We hade to disabling tabbing to the top level link for Apple because Firefox does not like it when you put a link inside of another link.
+  // You get sucked into a black hole of tabbing.
   var buttonLink = _wrapInLinkTag(
     button,
     'https://bcrw.apple.com/urn:biz:' + config.channels.abc.appleBusinessId,
-    'Apple Business Chat',
+    buttonLabel,
+    true,
   )
 
   var parent = _renderAnimationContainer(i)

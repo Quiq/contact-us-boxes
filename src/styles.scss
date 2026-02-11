@@ -249,7 +249,7 @@
 
   // Focus styling for the chat buttons
   // and a little extra to make sure the <button /> and <a /> are both styled the same
-  .channelButtonFocus:focus {
+  .channelButtonFocusable:focus {
     transition: 0.15s ease-in-out outline-offset;
     outline-offset: 2px;
     border-radius: 7px;

@@ -16,7 +16,7 @@ exports[`custom button color 1`] = `
         class="channelButtonIn channelButtonIn-0"
       >
         <button
-          class="channelButton channelButtonFocus"
+          class="channelButton channelButtonFocusable"
           id="smsButton"
         >
           <div
@@ -97,7 +97,7 @@ exports[`rendering buttons 1`] = `
         class="channelButtonIn channelButtonIn-3"
       >
         <button
-          class="channelButton channelButtonFocus"
+          class="channelButton channelButtonFocusable"
           id="smsButton"
         >
           <div
@@ -118,7 +118,7 @@ exports[`rendering buttons 1`] = `
         class="channelButtonIn channelButtonIn-2"
       >
         <a
-          class="channelButtonFocus"
+          class="channelButtonFocusable"
           href="https://www.messenger.com/t/test-facebook-id"
           rel="noopener"
           target="_blank"
@@ -159,7 +159,7 @@ exports[`rendering buttons 1`] = `
         class="channelButtonIn channelButtonIn-1"
       >
         <a
-          class="channelButtonFocus"
+          class="channelButtonFocusable"
           href="https://bcrw.apple.com/urn:biz:your-apple-business-id"
           rel="noopener"
           tabindex="-1"
@@ -196,7 +196,7 @@ exports[`rendering buttons 1`] = `
         class="channelButtonIn channelButtonIn-0"
       >
         <button
-          class="channelButton channelButtonFocus"
+          class="channelButton channelButtonFocusable"
           id="webchatButton"
         >
           <div
@@ -277,7 +277,7 @@ exports[`rendering buttons 2`] = `
         class="channelButtonIn channelButtonIn-3"
       >
         <button
-          class="channelButton channelButtonFocus"
+          class="channelButton channelButtonFocusable"
           id="smsButton"
         >
           <div
@@ -298,7 +298,7 @@ exports[`rendering buttons 2`] = `
         class="channelButtonIn channelButtonIn-2"
       >
         <a
-          class="channelButtonFocus"
+          class="channelButtonFocusable"
           href="https://www.messenger.com/t/test-facebook-id"
           rel="noopener"
           target="_blank"
@@ -339,7 +339,7 @@ exports[`rendering buttons 2`] = `
         class="channelButtonIn channelButtonIn-1"
       >
         <a
-          class="channelButtonFocus"
+          class="channelButtonFocusable"
           href="https://bcrw.apple.com/urn:biz:your-apple-business-id"
           rel="noopener"
           tabindex="-1"
@@ -376,7 +376,7 @@ exports[`rendering buttons 2`] = `
         class="channelButtonIn channelButtonIn-0"
       >
         <button
-          class="channelButton channelButtonFocus"
+          class="channelButton channelButtonFocusable"
           id="webchatButton"
         >
           <div

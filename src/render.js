@@ -112,7 +112,7 @@ export default async function render({config: configuration, renderTarget = docu
 
 function _wrapInLinkTag(element, href, ariaLabel, disableTabbing = false) {
   var buttonLink = document.createElement('a')
-  buttonLink.classList.add('channelButtonFocus')
+  buttonLink.classList.add('channelButtonFocusable')
   buttonLink.href = href
   buttonLink.target = '_blank'
   buttonLink.rel = 'noopener'
@@ -150,7 +150,7 @@ function _renderBasicButton(i, id, imgUrl, text) {
   var button = document.createElement('button')
   button.id = id
   button.classList.add('channelButton')
-  button.classList.add('channelButtonFocus')
+  button.classList.add('channelButtonFocusable')
   if (config.styles?.fontFamily) {
     button.style.fontFamily = config.styles.fontFamily
   }

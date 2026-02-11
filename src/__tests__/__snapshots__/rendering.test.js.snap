@@ -162,6 +162,7 @@ exports[`rendering buttons 1`] = `
           class="channelButtonFocus"
           href="https://bcrw.apple.com/urn:biz:your-apple-business-id"
           rel="noopener"
+          tabindex="-1"
           target="_blank"
         >
           <div
@@ -341,6 +342,7 @@ exports[`rendering buttons 2`] = `
           class="channelButtonFocus"
           href="https://bcrw.apple.com/urn:biz:your-apple-business-id"
           rel="noopener"
+          tabindex="-1"
           target="_blank"
         >
           <div

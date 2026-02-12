@@ -10,7 +10,10 @@ exports[`custom button color 1`] = `
       class="channelOptionShadow"
     />
     <div
+      aria-label="Contact Us Buttons"
       class="channelButtons"
+      id="QuiqContactUsButtonsList"
+      tabindex="-1"
     >
       <div
         class="channelButtonIn channelButtonIn-0"
@@ -91,7 +94,10 @@ exports[`rendering buttons 1`] = `
       class="channelOptionShadow"
     />
     <div
+      aria-label="Contact Us Buttons"
       class="channelButtons"
+      id="QuiqContactUsButtonsList"
+      tabindex="-1"
     >
       <div
         class="channelButtonIn channelButtonIn-3"
@@ -270,7 +276,10 @@ exports[`rendering buttons 2`] = `
       class="channelOptionShadow"
     />
     <div
+      aria-label="Contact Us Buttons"
       class="channelButtons"
+      id="QuiqContactUsButtonsList"
+      tabindex="-1"
     >
       <div
         class="channelButtonIn channelButtonIn-3"

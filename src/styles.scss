@@ -184,6 +184,10 @@
     z-index: 101;
   }
 
+  .channelButtons:focus {
+    outline: none;
+  }
+
   .channelButton {
     /* Reset button styles so it matches the previous div appearance */
     appearance: none;

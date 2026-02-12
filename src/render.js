@@ -371,12 +371,10 @@ function toggle() {
       }
     }
 
-    // Focusing the first chat button in the list
-    // Note: We need to handle the ABC platform because the link is inside another link and the inside link is Apple generated.
-    if (config.order && config.order.length > 1 && config.order[0] === 'abc') {
-      document.querySelector('#QuiqContactUsButtons .channelButtonFocusable:first-child a').focus()
-    } else {
-      document.querySelector('#QuiqContactUsButtons .channelButtonFocusable:first-child').focus()
+    // Focusing on the button list region instead of the first button in the list
+    const buttonsList = document.querySelector('#QuiqContactUsButtonsList')
+    if (buttonsList) {
+      buttonsList.focus()
     }
   }
 }

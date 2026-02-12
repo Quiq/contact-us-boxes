@@ -364,7 +364,12 @@ function toggle() {
     container.style.display = 'block'
 
     // Focusing the first chat button in the list
-    document.querySelector('#QuiqContactUsButtons .channelButton:first-child').focus()
+    // Note: We need to handle the ABC platform because the link is inside another link and the inside link is Apple generated.
+    if (config.order && config.order.length > 1 && config.order[0] === 'abc') {
+      document.querySelector('#QuiqContactUsButtons .channelButtonFocusable:first-child a').focus()
+    } else {
+      document.querySelector('#QuiqContactUsButtons .channelButtonFocusable:first-child').focus()
+    }
   }
 }
 

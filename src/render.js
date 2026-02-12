@@ -110,16 +110,13 @@ export default async function render({config: configuration, renderTarget = docu
   return {chat: chat || null}
 }
 
-function _wrapInLinkTag(element, href, ariaLabel, disableTabbing = false) {
+function _wrapInLinkTag(element, href, ariaLabel) {
   var buttonLink = document.createElement('a')
   buttonLink.classList.add('channelButtonFocusable')
   buttonLink.href = href
   buttonLink.target = '_blank'
   buttonLink.rel = 'noopener'
   buttonLink.ariaLabel = ariaLabel
-  if (disableTabbing) {
-    buttonLink.setAttribute('tabindex', '-1')
-  }
   buttonLink.appendChild(element)
 
   return buttonLink
@@ -313,7 +310,6 @@ function _renderAbc(i) {
     button,
     'https://bcrw.apple.com/urn:biz:' + config.channels.abc.appleBusinessId,
     buttonLabel,
-    true,
   )
 
   var parent = _renderAnimationContainer(i)
@@ -362,6 +358,18 @@ function toggle() {
     }, 700)
   } else {
     container.style.display = 'block'
+
+    // Adding tabindex -1 to anchor tag within apple-business-chat-message-container
+    // because we have this same link wrapping around this link for the ABC platform.
+    if (config.order && config.order.length > 1 && config.order.includes('abc')) {
+      const abcLink = document.querySelector(
+        '#QuiqContactUsButtons .apple-business-chat-message-container a',
+      )
+      // Checking if the link exists before we set the tabindex
+      if (abcLink) {
+        abcLink.setAttribute('tabindex', '-1')
+      }
+    }
 
     // Focusing the first chat button in the list
     // Note: We need to handle the ABC platform because the link is inside another link and the inside link is Apple generated.

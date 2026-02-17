@@ -1,7 +1,15 @@
 export default function renderMainButton({toggle, color, renderTarget, useChatV2}) {
   const button = document.createElement('button')
   button.id = 'QuiqContactUsButton'
-  button.onclick = () => toggle()
+  button.ariaLabel = 'Open Contact Us'
+  button.onclick = () => {
+    if (button.ariaLabel === 'Open Contact Us') {
+      button.ariaLabel = 'Close Contact Us'
+    } else {
+      button.ariaLabel = 'Open Contact Us'
+    }
+    return toggle()
+  }
   button.style.backgroundColor = color || '#3f4654'
   if (useChatV2) {
     // Hide the button at first if chat2.0 is loaded. Otherwise there can be a weird

@@ -110,11 +110,13 @@ export default async function render({config: configuration, renderTarget = docu
   return {chat: chat || null}
 }
 
-function _wrapInLinkTag(element, href) {
+function _wrapInLinkTag(element, href, ariaLabel) {
   var buttonLink = document.createElement('a')
+  buttonLink.classList.add('channelButtonFocusable')
   buttonLink.href = href
   buttonLink.target = '_blank'
   buttonLink.rel = 'noopener'
+  buttonLink.ariaLabel = ariaLabel
   buttonLink.appendChild(element)
 
   return buttonLink
@@ -142,16 +144,17 @@ function _renderText(text) {
 }
 
 function _renderBasicButton(i, id, imgUrl, text) {
-  var button = document.createElement('div')
+  var button = document.createElement('button')
   button.id = id
   button.classList.add('channelButton')
+  button.classList.add('channelButtonFocusable')
   if (config.styles?.fontFamily) {
     button.style.fontFamily = config.styles.fontFamily
   }
 
   var img = document.createElement('img')
   img.src = imgUrl
-
+  img.ariaLabel = `${text} Icon`
   var icon = _renderIconContainer(img)
   var text = _renderText(text)
 
@@ -175,7 +178,7 @@ function _renderSms(i, modalRenderTarget) {
 
   if (isMobile()) {
     // If we're on a phone, this should just be an sms link
-    return _wrapInLinkTag(button, 'sms:+' + config.channels.sms.phoneNumber)
+    return _wrapInLinkTag(button, 'sms:+' + config.channels.sms.phoneNumber, buttonLabel)
   } else {
     button.onclick = showSmsModal
     const modalContainer = renderSmsModal({
@@ -233,6 +236,7 @@ function _renderFacebook(i) {
   var buttonLink = _wrapInLinkTag(
     button,
     'https://www.messenger.com/t/' + config.channels.facebook.id,
+    buttonLabel,
   )
 
   var parent = _renderAnimationContainer(i)
@@ -262,7 +266,11 @@ function _renderWhatsApp(i) {
   button.appendChild(icon)
   button.appendChild(text)
 
-  var buttonLink = _wrapInLinkTag(button, 'https://wa.me/' + config.channels.whatsApp.phoneNumber)
+  var buttonLink = _wrapInLinkTag(
+    button,
+    'https://wa.me/' + config.channels.whatsApp.phoneNumber,
+    buttonLabel,
+  )
 
   var parent = _renderAnimationContainer(i)
   parent.appendChild(buttonLink)
@@ -283,6 +291,7 @@ function _renderAbc(i) {
   icon.dataset.appleIconBackgroundColor = '#ffffff'
   icon.dataset.appleIconColor = '#6e7883'
   icon.dataset.appleBusinessId = config.channels.abc.appleBusinessId
+  icon.setAttribute('data-apple-icon-title', 'Apple Business Chat')
 
   var spacer = document.createElement('div')
   spacer.style.width = '45px'
@@ -295,9 +304,12 @@ function _renderAbc(i) {
   button.appendChild(icon)
   button.appendChild(text)
 
+  // Note: We hade to disabling tabbing to the top level link for Apple because Firefox does not like it when you put a link inside of another link.
+  // You get sucked into a black hole of tabbing.
   var buttonLink = _wrapInLinkTag(
     button,
     'https://bcrw.apple.com/urn:biz:' + config.channels.abc.appleBusinessId,
+    buttonLabel,
   )
 
   var parent = _renderAnimationContainer(i)
@@ -346,6 +358,24 @@ function toggle() {
     }, 700)
   } else {
     container.style.display = 'block'
+
+    // Adding tabindex -1 to anchor tag within apple-business-chat-message-container
+    // because we have this same link wrapping around this link for the ABC platform.
+    if (config.order && config.order.length > 1 && config.order.includes('abc')) {
+      const abcLink = document.querySelector(
+        '#QuiqContactUsButtons .apple-business-chat-message-container a',
+      )
+      // Checking if the link exists before we set the tabindex
+      if (abcLink) {
+        abcLink.setAttribute('tabindex', '-1')
+      }
+    }
+
+    // Focusing on the button list region instead of the first button in the list
+    const buttonsList = document.querySelector('#QuiqContactUsButtonsList')
+    if (buttonsList) {
+      buttonsList.focus()
+    }
   }
 }
 

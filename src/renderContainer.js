@@ -8,6 +8,10 @@ export default function renderContainer({renderTarget}) {
   container.appendChild(shadow)
 
   const buttons = document.createElement('div')
+  buttons.id = 'QuiqContactUsButtonsList'
+  buttons.setAttribute('aria-label', 'Contact Us Buttons')
+  buttons.tabIndex = -1
+  buttons.role = 'region'
   buttons.classList.add('channelButtons')
   container.appendChild(buttons)
 

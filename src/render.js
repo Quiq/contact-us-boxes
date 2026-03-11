@@ -201,7 +201,7 @@ function _renderSms(i, modalRenderTarget) {
   var buttonAriaLabel = config?.channels?.sms?.buttonAriaLabel || undefined
   var iconAriaLabel = config?.channels?.sms?.iconAriaLabel || undefined
   var buttonTitle = config?.channels?.sms?.buttonTitle || undefined
-  var iconAltText = config?.channels?.sms?.iconAltText || undefined
+  var iconAltText = config?.channels?.sms?.iconAltText || ''
 
   var button = _renderBasicButton(
     i,
@@ -247,7 +247,7 @@ function _renderWebchat(i, useV2) {
   var buttonAriaLabel = config?.channels?.webchat?.buttonAriaLabel || undefined
   var iconAriaLabel = config?.channels?.webchat?.iconAriaLabel || undefined
   var buttonTitle = config?.channels?.webchat?.buttonTitle || undefined
-  var iconAltText = config?.channels?.webchat?.iconAltText
+  var iconAltText = config?.channels?.webchat?.iconAltText || ''
 
   var button = _renderBasicButton(
     i,

@@ -26,6 +26,7 @@ exports[`custom button color 1`] = `
             class="channelIcon"
           >
             <img
+              alt=""
               src="https://www.quiq-cdn.com/wp-content/uploads/2018/08/SMS_white_150px.png"
             />
           </div>
@@ -110,6 +111,7 @@ exports[`rendering buttons 1`] = `
             class="channelIcon"
           >
             <img
+              alt=""
               src="https://www.quiq-cdn.com/wp-content/uploads/2018/08/SMS_white_150px.png"
             />
           </div>
@@ -207,6 +209,7 @@ exports[`rendering buttons 1`] = `
             class="channelIcon"
           >
             <img
+              alt=""
               src="https://www.quiq-cdn.com/wp-content/uploads/2018/08/webchat-white.png"
             />
           </div>
@@ -291,6 +294,7 @@ exports[`rendering buttons 2`] = `
             class="channelIcon"
           >
             <img
+              alt=""
               src="https://www.quiq-cdn.com/wp-content/uploads/2018/08/SMS_white_150px.png"
             />
           </div>
@@ -388,6 +392,7 @@ exports[`rendering buttons 2`] = `
             class="channelIcon"
           >
             <img
+              alt=""
               src="https://www.quiq-cdn.com/wp-content/uploads/2018/08/webchat-white.png"
             />
           </div>

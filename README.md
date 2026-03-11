@@ -92,7 +92,7 @@ Note: If you're on a mobile device, tapping on the box will redirect you to your
 
 `iconAriaLabel` - The icon aria label for the SMS channel.
 
-`iconAltText` - The icon alt text for the SMS channel (used on the image `alt` attribute).
+`iconAltText` - The icon alt text for the SMS channel (used on the image `alt` attribute). Defaults to `""` (empty string).
 
 `modalTitle` - The title in the modal presented when you select SMS.
 
@@ -119,7 +119,7 @@ The recommended way to connect to your Quiq site is to add a `pageConfigurationI
 
 `iconAriaLabel` - The icon aria label for the Web Chat channel.
 
-`iconAltText` - The icon alt text for the Web Chat channel (used on the image `alt` attribute).
+`iconAltText` - The icon alt text for the Web Chat channel (used on the image `alt` attribute). Defaults to `""` (empty string).
 
 #### `facebook`
 
